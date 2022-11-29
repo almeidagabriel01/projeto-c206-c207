@@ -4,8 +4,9 @@ public class Artigo extends Acervo{
     private String autor;
     private int idArtigo;
 
-    public Artigo(int numRegistro, String titulo, String CDU) {
+    public Artigo(int numRegistro, String titulo, String CDU, String autor) {
         super(numRegistro, titulo, CDU);
+        this.autor = autor;
     }
 
     public void setIdArtigo(int Id) {

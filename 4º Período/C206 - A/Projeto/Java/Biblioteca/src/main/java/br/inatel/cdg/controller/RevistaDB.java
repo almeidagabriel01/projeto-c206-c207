@@ -40,12 +40,9 @@ public class RevistaDB extends Database {
             while (result.next()) {
                 Revista revista = new Revista(result.getInt("numRegistro"), result.getString("titulo"), result.getString("CDU"), result.getString("editora"), result.getInt("ano"));
                 revista.setIdRevista(result.getInt("idRevista"));
-                System.out.println("id = " + result.getInt("idRevista"));
-                System.out.println("Número do registro = " + result.getInt("numRegistro"));
-                System.out.println("Título = " + result.getString("titulo"));
-                System.out.println("CDU = " + result.getString("CDU"));
-                System.out.println("editora = " + result.getString("editora"));
-                System.out.println("ano = " + result.getString("ano"));
+                System.out.println("Id = " + result.getInt("idRevista"));
+                System.out.println("Editora = " + result.getString("editora"));
+                System.out.println("Ano = " + result.getString("ano"));
                 System.out.println("--------------------");
                 revistas.add(revista);
             }
