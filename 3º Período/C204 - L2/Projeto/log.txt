@@ -1,0 +1,658 @@
+Flat profile:
+
+Each sample counts as 0.01 seconds.
+ no time accumulated
+
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls  Ts/call  Ts/call  name    
+  0.00      0.00     0.00      360     0.00     0.00  __gnu_cxx::__aligned_membuf<no>::_M_ptr()
+  0.00      0.00     0.00      360     0.00     0.00  __gnu_cxx::__aligned_membuf<no>::_M_addr()
+  0.00      0.00     0.00      360     0.00     0.00  std::_List_node<no>::_M_valptr()
+  0.00      0.00     0.00      300     0.00     0.00  std::_List_iterator<no>::operator->() const
+  0.00      0.00     0.00      246     0.00     0.00  std::_List_iterator<no>::_List_iterator(std::__detail::_List_node_base*)
+  0.00      0.00     0.00      213     0.00     0.00  std::__cxx11::list<no, std::allocator<no> >::end()
+  0.00      0.00     0.00      183     0.00     0.00  std::_List_iterator<no>::operator!=(std::_List_iterator<no> const&) const
+  0.00      0.00     0.00      150     0.00     0.00  std::_List_iterator<no>::operator++(int)
+  0.00      0.00     0.00      120     0.00     0.00  no const& std::forward<no const&>(std::remove_reference<no const&>::type&)
+  0.00      0.00     0.00      105     0.00     0.00  std::__detail::_List_node_header::_M_init()
+  0.00      0.00     0.00      105     0.00     0.00  std::__detail::_List_node_header::_List_node_header()
+  0.00      0.00     0.00      100     0.00     0.00  __gnu_cxx::new_allocator<std::_List_node<no> >::new_allocator()
+  0.00      0.00     0.00      100     0.00     0.00  __gnu_cxx::new_allocator<std::_List_node<no> >::~new_allocator()
+  0.00      0.00     0.00      100     0.00     0.00  std::allocator<std::_List_node<no> >::allocator()
+  0.00      0.00     0.00      100     0.00     0.00  std::allocator<std::_List_node<no> >::~allocator()
+  0.00      0.00     0.00      100     0.00     0.00  std::__cxx11::_List_base<no, std::allocator<no> >::_List_impl::_List_impl()
+  0.00      0.00     0.00      100     0.00     0.00  std::__cxx11::_List_base<no, std::allocator<no> >::_List_impl::~_List_impl()
+  0.00      0.00     0.00      100     0.00     0.00  std::__cxx11::_List_base<no, std::allocator<no> >::_M_clear()
+  0.00      0.00     0.00      100     0.00     0.00  std::__cxx11::_List_base<no, std::allocator<no> >::_List_base()
+  0.00      0.00     0.00      100     0.00     0.00  std::__cxx11::_List_base<no, std::allocator<no> >::~_List_base()
+  0.00      0.00     0.00      100     0.00     0.00  std::__cxx11::list<no, std::allocator<no> >::list()
+  0.00      0.00     0.00      100     0.00     0.00  std::__cxx11::list<no, std::allocator<no> >::~list()
+  0.00      0.00     0.00       60     0.00     0.00  std::__cxx11::_List_base<no, std::allocator<no> >::_M_get_Node_allocator()
+  0.00      0.00     0.00       52     0.00     0.00  int const& std::forward<int const&>(std::remove_reference<int const&>::type&)
+  0.00      0.00     0.00       43     0.00     0.00  operator new(unsigned long long, void*)
+  0.00      0.00     0.00       39     0.00     0.00  __gnu_cxx::__aligned_membuf<int>::_M_ptr()
+  0.00      0.00     0.00       39     0.00     0.00  __gnu_cxx::__aligned_membuf<int>::_M_addr()
+  0.00      0.00     0.00       39     0.00     0.00  std::_List_node<int>::_M_valptr()
+  0.00      0.00     0.00       36     0.00     0.00  std::_List_iterator<int>::_List_iterator(std::__detail::_List_node_base*)
+  0.00      0.00     0.00       33     0.00     0.00  std::__cxx11::list<no, std::allocator<no> >::begin()
+  0.00      0.00     0.00       30     0.00     0.00  __gnu_cxx::new_allocator<std::_List_node<no> >::deallocate(std::_List_node<no>*, unsigned long long)
+  0.00      0.00     0.00       30     0.00     0.00  void __gnu_cxx::new_allocator<std::_List_node<no> >::destroy<no>(no*)
+  0.00      0.00     0.00       30     0.00     0.00  __gnu_cxx::new_allocator<std::_List_node<no> >::allocate(unsigned long long, void const*)
+  0.00      0.00     0.00       30     0.00     0.00  void __gnu_cxx::new_allocator<std::_List_node<no> >::construct<no, no const&>(no*, no const&)
+  0.00      0.00     0.00       30     0.00     0.00  __gnu_cxx::new_allocator<std::_List_node<no> >::max_size() const
+  0.00      0.00     0.00       30     0.00     0.00  std::__allocated_ptr<std::allocator<std::_List_node<no> > >::__allocated_ptr(std::allocator<std::_List_node<no> >&, std::_List_node<no>*)
+  0.00      0.00     0.00       30     0.00     0.00  std::__allocated_ptr<std::allocator<std::_List_node<no> > >::~__allocated_ptr()
+  0.00      0.00     0.00       30     0.00     0.00  std::__allocated_ptr<std::allocator<std::_List_node<no> > >::operator=(decltype(nullptr))
+  0.00      0.00     0.00       30     0.00     0.00  std::allocator_traits<std::allocator<std::_List_node<no> > >::deallocate(std::allocator<std::_List_node<no> >&, std::_List_node<no>*, unsigned long long)
+  0.00      0.00     0.00       30     0.00     0.00  void std::allocator_traits<std::allocator<std::_List_node<no> > >::destroy<no>(std::allocator<std::_List_node<no> >&, no*)
+  0.00      0.00     0.00       30     0.00     0.00  std::allocator_traits<std::allocator<std::_List_node<no> > >::allocate(std::allocator<std::_List_node<no> >&, unsigned long long)
+  0.00      0.00     0.00       30     0.00     0.00  void std::allocator_traits<std::allocator<std::_List_node<no> > >::construct<no, no const&>(std::allocator<std::_List_node<no> >&, no*, no const&)
+  0.00      0.00     0.00       30     0.00     0.00  std::__cxx11::_List_base<no, std::allocator<no> >::_M_get_node()
+  0.00      0.00     0.00       30     0.00     0.00  std::__cxx11::_List_base<no, std::allocator<no> >::_M_inc_size(unsigned long long)
+  0.00      0.00     0.00       30     0.00     0.00  std::__cxx11::_List_base<no, std::allocator<no> >::_M_put_node(std::_List_node<no>*)
+  0.00      0.00     0.00       30     0.00     0.00  std::_List_node<no>* std::__cxx11::list<no, std::allocator<no> >::_M_create_node<no const&>(no const&)
+  0.00      0.00     0.00       30     0.00     0.00  void std::__cxx11::list<no, std::allocator<no> >::_M_insert<no const&>(std::_List_iterator<no>, no const&)
+  0.00      0.00     0.00       30     0.00     0.00  std::__cxx11::list<no, std::allocator<no> >::push_back(no const&)
+  0.00      0.00     0.00       30     0.00     0.00  std::allocator<std::_List_node<no> >* std::__addressof<std::allocator<std::_List_node<no> > >(std::allocator<std::_List_node<no> >&)
+  0.00      0.00     0.00       26     0.00     0.00  std::__cxx11::_List_base<int, std::allocator<int> >::_M_get_Node_allocator()
+  0.00      0.00     0.00       18     0.00     0.00  std::_List_iterator<int>::operator!=(std::_List_iterator<int> const&) const
+  0.00      0.00     0.00       18     0.00     0.00  std::__cxx11::list<int, std::allocator<int> >::end()
+  0.00      0.00     0.00       18     0.00     0.00  std::__cxx11::list<int, std::allocator<int> >::begin()
+  0.00      0.00     0.00       15     0.00     0.00  cria_aresta(std::__cxx11::list<no, std::allocator<no> >*, int, int, int)
+  0.00      0.00     0.00       13     0.00     0.00  __gnu_cxx::new_allocator<std::_List_node<int> >::deallocate(std::_List_node<int>*, unsigned long long)
+  0.00      0.00     0.00       13     0.00     0.00  void __gnu_cxx::new_allocator<std::_List_node<int> >::destroy<int>(int*)
+  0.00      0.00     0.00       13     0.00     0.00  __gnu_cxx::new_allocator<std::_List_node<int> >::allocate(unsigned long long, void const*)
+  0.00      0.00     0.00       13     0.00     0.00  void __gnu_cxx::new_allocator<std::_List_node<int> >::construct<int, int const&>(int*, int const&)
+  0.00      0.00     0.00       13     0.00     0.00  __gnu_cxx::new_allocator<std::_List_node<int> >::max_size() const
+  0.00      0.00     0.00       13     0.00     0.00  std::_List_iterator<int>::operator*() const
+  0.00      0.00     0.00       13     0.00     0.00  std::_List_iterator<int>::operator++(int)
+  0.00      0.00     0.00       13     0.00     0.00  std::__allocated_ptr<std::allocator<std::_List_node<int> > >::__allocated_ptr(std::allocator<std::_List_node<int> >&, std::_List_node<int>*)
+  0.00      0.00     0.00       13     0.00     0.00  std::__allocated_ptr<std::allocator<std::_List_node<int> > >::~__allocated_ptr()
+  0.00      0.00     0.00       13     0.00     0.00  std::__allocated_ptr<std::allocator<std::_List_node<int> > >::operator=(decltype(nullptr))
+  0.00      0.00     0.00       13     0.00     0.00  std::allocator_traits<std::allocator<std::_List_node<int> > >::deallocate(std::allocator<std::_List_node<int> >&, std::_List_node<int>*, unsigned long long)
+  0.00      0.00     0.00       13     0.00     0.00  void std::allocator_traits<std::allocator<std::_List_node<int> > >::destroy<int>(std::allocator<std::_List_node<int> >&, int*)
+  0.00      0.00     0.00       13     0.00     0.00  std::allocator_traits<std::allocator<std::_List_node<int> > >::allocate(std::allocator<std::_List_node<int> >&, unsigned long long)
+  0.00      0.00     0.00       13     0.00     0.00  void std::allocator_traits<std::allocator<std::_List_node<int> > >::construct<int, int const&>(std::allocator<std::_List_node<int> >&, int*, int const&)
+  0.00      0.00     0.00       13     0.00     0.00  std::__cxx11::_List_base<int, std::allocator<int> >::_M_get_node()
+  0.00      0.00     0.00       13     0.00     0.00  std::__cxx11::_List_base<int, std::allocator<int> >::_M_inc_size(unsigned long long)
+  0.00      0.00     0.00       13     0.00     0.00  std::__cxx11::_List_base<int, std::allocator<int> >::_M_put_node(std::_List_node<int>*)
+  0.00      0.00     0.00       13     0.00     0.00  std::__cxx11::list<int, std::allocator<int> >::push_front(int const&)
+  0.00      0.00     0.00       13     0.00     0.00  std::_List_node<int>* std::__cxx11::list<int, std::allocator<int> >::_M_create_node<int const&>(int const&)
+  0.00      0.00     0.00       13     0.00     0.00  void std::__cxx11::list<int, std::allocator<int> >::_M_insert<int const&>(std::_List_iterator<int>, int const&)
+  0.00      0.00     0.00       13     0.00     0.00  std::allocator<std::_List_node<int> >* std::__addressof<std::allocator<std::_List_node<int> > >(std::allocator<std::_List_node<int> >&)
+  0.00      0.00     0.00        6     0.00     0.00  std::_List_iterator<no>::_List_iterator()
+  0.00      0.00     0.00        5     0.00     0.00  dijkstra(std::__cxx11::list<no, std::allocator<no> >*, int, int, int, dado*, int&)
+  0.00      0.00     0.00        5     0.00     0.00  __gnu_cxx::new_allocator<std::_List_node<int> >::new_allocator()
+  0.00      0.00     0.00        5     0.00     0.00  __gnu_cxx::new_allocator<std::_List_node<int> >::~new_allocator()
+  0.00      0.00     0.00        5     0.00     0.00  std::allocator<std::_List_node<int> >::allocator()
+  0.00      0.00     0.00        5     0.00     0.00  std::allocator<std::_List_node<int> >::~allocator()
+  0.00      0.00     0.00        5     0.00     0.00  std::_List_iterator<int>::_List_iterator()
+  0.00      0.00     0.00        5     0.00     0.00  std::__cxx11::_List_base<int, std::allocator<int> >::_List_impl::_List_impl()
+  0.00      0.00     0.00        5     0.00     0.00  std::__cxx11::_List_base<int, std::allocator<int> >::_List_impl::~_List_impl()
+  0.00      0.00     0.00        5     0.00     0.00  std::__cxx11::_List_base<int, std::allocator<int> >::_M_clear()
+  0.00      0.00     0.00        5     0.00     0.00  std::__cxx11::_List_base<int, std::allocator<int> >::_List_base()
+  0.00      0.00     0.00        5     0.00     0.00  std::__cxx11::_List_base<int, std::allocator<int> >::~_List_base()
+  0.00      0.00     0.00        5     0.00     0.00  std::__cxx11::list<int, std::allocator<int> >::list()
+  0.00      0.00     0.00        5     0.00     0.00  std::__cxx11::list<int, std::allocator<int> >::~list()
+  0.00      0.00     0.00        1     0.00     0.00  mochila(int, int, int, int, int*, dado*, int, std::__cxx11::list<no, std::allocator<no> >*)
+  0.00      0.00     0.00        1     0.00     0.00  quickSort(dado*, int, int, int)
+
+ %         the percentage of the total running time of the
+time       program used by this function.
+
+cumulative a running sum of the number of seconds accounted
+ seconds   for by this function and those listed above it.
+
+ self      the number of seconds accounted for by this
+seconds    function alone.  This is the major sort for this
+           listing.
+
+calls      the number of times this function was invoked, if
+           this function is profiled, else blank.
+
+ self      the average number of milliseconds spent in this
+ms/call    function per call, if this function is profiled,
+	   else blank.
+
+ total     the average number of milliseconds spent in this
+ms/call    function and its descendents per call, if this
+	   function is profiled, else blank.
+
+name       the name of the function.  This is the minor sort
+           for this listing. The index shows the location of
+	   the function in the gprof listing. If the index is
+	   in parenthesis it shows where it would appear in
+	   the gprof listing if it were to be printed.
+
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+		     Call graph (explanation follows)
+
+
+granularity: each sample hit covers 4 byte(s) no time propagated
+
+index % time    self  children    called     name
+                0.00    0.00     360/360         std::_List_node<no>::_M_valptr() [71]
+[69]     0.0    0.00    0.00     360         __gnu_cxx::__aligned_membuf<no>::_M_ptr() [69]
+                0.00    0.00     360/360         __gnu_cxx::__aligned_membuf<no>::_M_addr() [70]
+-----------------------------------------------
+                0.00    0.00     360/360         __gnu_cxx::__aligned_membuf<no>::_M_ptr() [69]
+[70]     0.0    0.00    0.00     360         __gnu_cxx::__aligned_membuf<no>::_M_addr() [70]
+-----------------------------------------------
+                0.00    0.00      30/360         std::__cxx11::_List_base<no, std::allocator<no> >::_M_clear() [86]
+                0.00    0.00      30/360         std::_List_node<no>* std::__cxx11::list<no, std::allocator<no> >::_M_create_node<no const&>(no const&) [114]
+                0.00    0.00     300/360         std::_List_iterator<no>::operator->() const [72]
+[71]     0.0    0.00    0.00     360         std::_List_node<no>::_M_valptr() [71]
+                0.00    0.00     360/360         __gnu_cxx::__aligned_membuf<no>::_M_ptr() [69]
+-----------------------------------------------
+                0.00    0.00     300/300         dijkstra(std::__cxx11::list<no, std::allocator<no> >*, int, int, int, dado*, int&) [145]
+[72]     0.0    0.00    0.00     300         std::_List_iterator<no>::operator->() const [72]
+                0.00    0.00     300/360         std::_List_node<no>::_M_valptr() [71]
+-----------------------------------------------
+                0.00    0.00      33/246         std::__cxx11::list<no, std::allocator<no> >::begin() [98]
+                0.00    0.00     213/246         std::__cxx11::list<no, std::allocator<no> >::end() [74]
+[73]     0.0    0.00    0.00     246         std::_List_iterator<no>::_List_iterator(std::__detail::_List_node_base*) [73]
+-----------------------------------------------
+                0.00    0.00      30/213         std::__cxx11::list<no, std::allocator<no> >::push_back(no const&) [116]
+                0.00    0.00     183/213         dijkstra(std::__cxx11::list<no, std::allocator<no> >*, int, int, int, dado*, int&) [145]
+[74]     0.0    0.00    0.00     213         std::__cxx11::list<no, std::allocator<no> >::end() [74]
+                0.00    0.00     213/246         std::_List_iterator<no>::_List_iterator(std::__detail::_List_node_base*) [73]
+-----------------------------------------------
+                0.00    0.00     183/183         dijkstra(std::__cxx11::list<no, std::allocator<no> >*, int, int, int, dado*, int&) [145]
+[75]     0.0    0.00    0.00     183         std::_List_iterator<no>::operator!=(std::_List_iterator<no> const&) const [75]
+-----------------------------------------------
+                0.00    0.00     150/150         dijkstra(std::__cxx11::list<no, std::allocator<no> >*, int, int, int, dado*, int&) [145]
+[76]     0.0    0.00    0.00     150         std::_List_iterator<no>::operator++(int) [76]
+-----------------------------------------------
+                0.00    0.00      30/120         void __gnu_cxx::new_allocator<std::_List_node<no> >::construct<no, no const&>(no*, no const&) [102]
+                0.00    0.00      30/120         void std::allocator_traits<std::allocator<std::_List_node<no> > >::construct<no, no const&>(std::allocator<std::_List_node<no> >&, no*, no const&) [110]
+                0.00    0.00      30/120         std::_List_node<no>* std::__cxx11::list<no, std::allocator<no> >::_M_create_node<no const&>(no const&) [114]
+                0.00    0.00      30/120         void std::__cxx11::list<no, std::allocator<no> >::_M_insert<no const&>(std::_List_iterator<no>, no const&) [115]
+[77]     0.0    0.00    0.00     120         no const& std::forward<no const&>(std::remove_reference<no const&>::type&) [77]
+-----------------------------------------------
+                0.00    0.00     105/105         std::__detail::_List_node_header::_List_node_header() [79]
+[78]     0.0    0.00    0.00     105         std::__detail::_List_node_header::_M_init() [78]
+-----------------------------------------------
+                0.00    0.00       5/105         std::__cxx11::_List_base<int, std::allocator<int> >::_List_impl::_List_impl() [151]
+                0.00    0.00     100/105         std::__cxx11::_List_base<no, std::allocator<no> >::_List_impl::_List_impl() [84]
+[79]     0.0    0.00    0.00     105         std::__detail::_List_node_header::_List_node_header() [79]
+                0.00    0.00     105/105         std::__detail::_List_node_header::_M_init() [78]
+-----------------------------------------------
+                0.00    0.00     100/100         std::allocator<std::_List_node<no> >::allocator() [82]
+[80]     0.0    0.00    0.00     100         __gnu_cxx::new_allocator<std::_List_node<no> >::new_allocator() [80]
+-----------------------------------------------
+                0.00    0.00     100/100         std::allocator<std::_List_node<no> >::~allocator() [83]
+[81]     0.0    0.00    0.00     100         __gnu_cxx::new_allocator<std::_List_node<no> >::~new_allocator() [81]
+-----------------------------------------------
+                0.00    0.00     100/100         std::__cxx11::_List_base<no, std::allocator<no> >::_List_impl::_List_impl() [84]
+[82]     0.0    0.00    0.00     100         std::allocator<std::_List_node<no> >::allocator() [82]
+                0.00    0.00     100/100         __gnu_cxx::new_allocator<std::_List_node<no> >::new_allocator() [80]
+-----------------------------------------------
+                0.00    0.00     100/100         std::__cxx11::_List_base<no, std::allocator<no> >::_List_impl::~_List_impl() [85]
+[83]     0.0    0.00    0.00     100         std::allocator<std::_List_node<no> >::~allocator() [83]
+                0.00    0.00     100/100         __gnu_cxx::new_allocator<std::_List_node<no> >::~new_allocator() [81]
+-----------------------------------------------
+                0.00    0.00     100/100         std::__cxx11::_List_base<no, std::allocator<no> >::_List_base() [87]
+[84]     0.0    0.00    0.00     100         std::__cxx11::_List_base<no, std::allocator<no> >::_List_impl::_List_impl() [84]
+                0.00    0.00     100/100         std::allocator<std::_List_node<no> >::allocator() [82]
+                0.00    0.00     100/105         std::__detail::_List_node_header::_List_node_header() [79]
+-----------------------------------------------
+                0.00    0.00     100/100         std::__cxx11::_List_base<no, std::allocator<no> >::~_List_base() [88]
+[85]     0.0    0.00    0.00     100         std::__cxx11::_List_base<no, std::allocator<no> >::_List_impl::~_List_impl() [85]
+                0.00    0.00     100/100         std::allocator<std::_List_node<no> >::~allocator() [83]
+-----------------------------------------------
+                0.00    0.00     100/100         std::__cxx11::_List_base<no, std::allocator<no> >::~_List_base() [88]
+[86]     0.0    0.00    0.00     100         std::__cxx11::_List_base<no, std::allocator<no> >::_M_clear() [86]
+                0.00    0.00      30/360         std::_List_node<no>::_M_valptr() [71]
+                0.00    0.00      30/60          std::__cxx11::_List_base<no, std::allocator<no> >::_M_get_Node_allocator() [91]
+                0.00    0.00      30/30          void std::allocator_traits<std::allocator<std::_List_node<no> > >::destroy<no>(std::allocator<std::_List_node<no> >&, no*) [108]
+                0.00    0.00      30/30          std::__cxx11::_List_base<no, std::allocator<no> >::_M_put_node(std::_List_node<no>*) [113]
+-----------------------------------------------
+                0.00    0.00     100/100         std::__cxx11::list<no, std::allocator<no> >::list() [89]
+[87]     0.0    0.00    0.00     100         std::__cxx11::_List_base<no, std::allocator<no> >::_List_base() [87]
+                0.00    0.00     100/100         std::__cxx11::_List_base<no, std::allocator<no> >::_List_impl::_List_impl() [84]
+-----------------------------------------------
+                0.00    0.00     100/100         std::__cxx11::list<no, std::allocator<no> >::~list() [90]
+[88]     0.0    0.00    0.00     100         std::__cxx11::_List_base<no, std::allocator<no> >::~_List_base() [88]
+                0.00    0.00     100/100         std::__cxx11::_List_base<no, std::allocator<no> >::_M_clear() [86]
+                0.00    0.00     100/100         std::__cxx11::_List_base<no, std::allocator<no> >::_List_impl::~_List_impl() [85]
+-----------------------------------------------
+                0.00    0.00     100/100         main [47]
+[89]     0.0    0.00    0.00     100         std::__cxx11::list<no, std::allocator<no> >::list() [89]
+                0.00    0.00     100/100         std::__cxx11::_List_base<no, std::allocator<no> >::_List_base() [87]
+-----------------------------------------------
+                0.00    0.00     100/100         main [47]
+[90]     0.0    0.00    0.00     100         std::__cxx11::list<no, std::allocator<no> >::~list() [90]
+                0.00    0.00     100/100         std::__cxx11::_List_base<no, std::allocator<no> >::~_List_base() [88]
+-----------------------------------------------
+                0.00    0.00      30/60          std::__cxx11::_List_base<no, std::allocator<no> >::_M_clear() [86]
+                0.00    0.00      30/60          std::_List_node<no>* std::__cxx11::list<no, std::allocator<no> >::_M_create_node<no const&>(no const&) [114]
+[91]     0.0    0.00    0.00      60         std::__cxx11::_List_base<no, std::allocator<no> >::_M_get_Node_allocator() [91]
+-----------------------------------------------
+                0.00    0.00      13/52          void __gnu_cxx::new_allocator<std::_List_node<int> >::construct<int, int const&>(int*, int const&) [126]
+                0.00    0.00      13/52          void std::allocator_traits<std::allocator<std::_List_node<int> > >::construct<int, int const&>(std::allocator<std::_List_node<int> >&, int*, int const&) [136]
+                0.00    0.00      13/52          std::_List_node<int>* std::__cxx11::list<int, std::allocator<int> >::_M_create_node<int const&>(int const&) [141]
+                0.00    0.00      13/52          void std::__cxx11::list<int, std::allocator<int> >::_M_insert<int const&>(std::_List_iterator<int>, int const&) [142]
+[92]     0.0    0.00    0.00      52         int const& std::forward<int const&>(std::remove_reference<int const&>::type&) [92]
+-----------------------------------------------
+                0.00    0.00      13/43          void __gnu_cxx::new_allocator<std::_List_node<int> >::construct<int, int const&>(int*, int const&) [126]
+                0.00    0.00      30/43          void __gnu_cxx::new_allocator<std::_List_node<no> >::construct<no, no const&>(no*, no const&) [102]
+[93]     0.0    0.00    0.00      43         operator new(unsigned long long, void*) [93]
+-----------------------------------------------
+                0.00    0.00      39/39          std::_List_node<int>::_M_valptr() [96]
+[94]     0.0    0.00    0.00      39         __gnu_cxx::__aligned_membuf<int>::_M_ptr() [94]
+                0.00    0.00      39/39          __gnu_cxx::__aligned_membuf<int>::_M_addr() [95]
+-----------------------------------------------
+                0.00    0.00      39/39          __gnu_cxx::__aligned_membuf<int>::_M_ptr() [94]
+[95]     0.0    0.00    0.00      39         __gnu_cxx::__aligned_membuf<int>::_M_addr() [95]
+-----------------------------------------------
+                0.00    0.00      13/39          std::_List_iterator<int>::operator*() const [128]
+                0.00    0.00      13/39          std::__cxx11::_List_base<int, std::allocator<int> >::_M_clear() [153]
+                0.00    0.00      13/39          std::_List_node<int>* std::__cxx11::list<int, std::allocator<int> >::_M_create_node<int const&>(int const&) [141]
+[96]     0.0    0.00    0.00      39         std::_List_node<int>::_M_valptr() [96]
+                0.00    0.00      39/39          __gnu_cxx::__aligned_membuf<int>::_M_ptr() [94]
+-----------------------------------------------
+                0.00    0.00      18/36          std::__cxx11::list<int, std::allocator<int> >::end() [120]
+                0.00    0.00      18/36          std::__cxx11::list<int, std::allocator<int> >::begin() [121]
+[97]     0.0    0.00    0.00      36         std::_List_iterator<int>::_List_iterator(std::__detail::_List_node_base*) [97]
+-----------------------------------------------
+                0.00    0.00      33/33          dijkstra(std::__cxx11::list<no, std::allocator<no> >*, int, int, int, dado*, int&) [145]
+[98]     0.0    0.00    0.00      33         std::__cxx11::list<no, std::allocator<no> >::begin() [98]
+                0.00    0.00      33/246         std::_List_iterator<no>::_List_iterator(std::__detail::_List_node_base*) [73]
+-----------------------------------------------
+                0.00    0.00      30/30          std::allocator_traits<std::allocator<std::_List_node<no> > >::deallocate(std::allocator<std::_List_node<no> >&, std::_List_node<no>*, unsigned long long) [107]
+[99]     0.0    0.00    0.00      30         __gnu_cxx::new_allocator<std::_List_node<no> >::deallocate(std::_List_node<no>*, unsigned long long) [99]
+-----------------------------------------------
+                0.00    0.00      30/30          void std::allocator_traits<std::allocator<std::_List_node<no> > >::destroy<no>(std::allocator<std::_List_node<no> >&, no*) [108]
+[100]    0.0    0.00    0.00      30         void __gnu_cxx::new_allocator<std::_List_node<no> >::destroy<no>(no*) [100]
+-----------------------------------------------
+                0.00    0.00      30/30          std::allocator_traits<std::allocator<std::_List_node<no> > >::allocate(std::allocator<std::_List_node<no> >&, unsigned long long) [109]
+[101]    0.0    0.00    0.00      30         __gnu_cxx::new_allocator<std::_List_node<no> >::allocate(unsigned long long, void const*) [101]
+                0.00    0.00      30/30          __gnu_cxx::new_allocator<std::_List_node<no> >::max_size() const [103]
+-----------------------------------------------
+                0.00    0.00      30/30          void std::allocator_traits<std::allocator<std::_List_node<no> > >::construct<no, no const&>(std::allocator<std::_List_node<no> >&, no*, no const&) [110]
+[102]    0.0    0.00    0.00      30         void __gnu_cxx::new_allocator<std::_List_node<no> >::construct<no, no const&>(no*, no const&) [102]
+                0.00    0.00      30/120         no const& std::forward<no const&>(std::remove_reference<no const&>::type&) [77]
+                0.00    0.00      30/43          operator new(unsigned long long, void*) [93]
+-----------------------------------------------
+                0.00    0.00      30/30          __gnu_cxx::new_allocator<std::_List_node<no> >::allocate(unsigned long long, void const*) [101]
+[103]    0.0    0.00    0.00      30         __gnu_cxx::new_allocator<std::_List_node<no> >::max_size() const [103]
+-----------------------------------------------
+                0.00    0.00      30/30          std::_List_node<no>* std::__cxx11::list<no, std::allocator<no> >::_M_create_node<no const&>(no const&) [114]
+[104]    0.0    0.00    0.00      30         std::__allocated_ptr<std::allocator<std::_List_node<no> > >::__allocated_ptr(std::allocator<std::_List_node<no> >&, std::_List_node<no>*) [104]
+                0.00    0.00      30/30          std::allocator<std::_List_node<no> >* std::__addressof<std::allocator<std::_List_node<no> > >(std::allocator<std::_List_node<no> >&) [117]
+-----------------------------------------------
+                0.00    0.00      30/30          std::_List_node<no>* std::__cxx11::list<no, std::allocator<no> >::_M_create_node<no const&>(no const&) [114]
+[105]    0.0    0.00    0.00      30         std::__allocated_ptr<std::allocator<std::_List_node<no> > >::~__allocated_ptr() [105]
+-----------------------------------------------
+                0.00    0.00      30/30          std::_List_node<no>* std::__cxx11::list<no, std::allocator<no> >::_M_create_node<no const&>(no const&) [114]
+[106]    0.0    0.00    0.00      30         std::__allocated_ptr<std::allocator<std::_List_node<no> > >::operator=(decltype(nullptr)) [106]
+-----------------------------------------------
+                0.00    0.00      30/30          std::__cxx11::_List_base<no, std::allocator<no> >::_M_put_node(std::_List_node<no>*) [113]
+[107]    0.0    0.00    0.00      30         std::allocator_traits<std::allocator<std::_List_node<no> > >::deallocate(std::allocator<std::_List_node<no> >&, std::_List_node<no>*, unsigned long long) [107]
+                0.00    0.00      30/30          __gnu_cxx::new_allocator<std::_List_node<no> >::deallocate(std::_List_node<no>*, unsigned long long) [99]
+-----------------------------------------------
+                0.00    0.00      30/30          std::__cxx11::_List_base<no, std::allocator<no> >::_M_clear() [86]
+[108]    0.0    0.00    0.00      30         void std::allocator_traits<std::allocator<std::_List_node<no> > >::destroy<no>(std::allocator<std::_List_node<no> >&, no*) [108]
+                0.00    0.00      30/30          void __gnu_cxx::new_allocator<std::_List_node<no> >::destroy<no>(no*) [100]
+-----------------------------------------------
+                0.00    0.00      30/30          std::__cxx11::_List_base<no, std::allocator<no> >::_M_get_node() [111]
+[109]    0.0    0.00    0.00      30         std::allocator_traits<std::allocator<std::_List_node<no> > >::allocate(std::allocator<std::_List_node<no> >&, unsigned long long) [109]
+                0.00    0.00      30/30          __gnu_cxx::new_allocator<std::_List_node<no> >::allocate(unsigned long long, void const*) [101]
+-----------------------------------------------
+                0.00    0.00      30/30          std::_List_node<no>* std::__cxx11::list<no, std::allocator<no> >::_M_create_node<no const&>(no const&) [114]
+[110]    0.0    0.00    0.00      30         void std::allocator_traits<std::allocator<std::_List_node<no> > >::construct<no, no const&>(std::allocator<std::_List_node<no> >&, no*, no const&) [110]
+                0.00    0.00      30/120         no const& std::forward<no const&>(std::remove_reference<no const&>::type&) [77]
+                0.00    0.00      30/30          void __gnu_cxx::new_allocator<std::_List_node<no> >::construct<no, no const&>(no*, no const&) [102]
+-----------------------------------------------
+                0.00    0.00      30/30          std::_List_node<no>* std::__cxx11::list<no, std::allocator<no> >::_M_create_node<no const&>(no const&) [114]
+[111]    0.0    0.00    0.00      30         std::__cxx11::_List_base<no, std::allocator<no> >::_M_get_node() [111]
+                0.00    0.00      30/30          std::allocator_traits<std::allocator<std::_List_node<no> > >::allocate(std::allocator<std::_List_node<no> >&, unsigned long long) [109]
+-----------------------------------------------
+                0.00    0.00      30/30          void std::__cxx11::list<no, std::allocator<no> >::_M_insert<no const&>(std::_List_iterator<no>, no const&) [115]
+[112]    0.0    0.00    0.00      30         std::__cxx11::_List_base<no, std::allocator<no> >::_M_inc_size(unsigned long long) [112]
+-----------------------------------------------
+                0.00    0.00      30/30          std::__cxx11::_List_base<no, std::allocator<no> >::_M_clear() [86]
+[113]    0.0    0.00    0.00      30         std::__cxx11::_List_base<no, std::allocator<no> >::_M_put_node(std::_List_node<no>*) [113]
+                0.00    0.00      30/30          std::allocator_traits<std::allocator<std::_List_node<no> > >::deallocate(std::allocator<std::_List_node<no> >&, std::_List_node<no>*, unsigned long long) [107]
+-----------------------------------------------
+                0.00    0.00      30/30          void std::__cxx11::list<no, std::allocator<no> >::_M_insert<no const&>(std::_List_iterator<no>, no const&) [115]
+[114]    0.0    0.00    0.00      30         std::_List_node<no>* std::__cxx11::list<no, std::allocator<no> >::_M_create_node<no const&>(no const&) [114]
+                0.00    0.00      30/30          std::__cxx11::_List_base<no, std::allocator<no> >::_M_get_node() [111]
+                0.00    0.00      30/60          std::__cxx11::_List_base<no, std::allocator<no> >::_M_get_Node_allocator() [91]
+                0.00    0.00      30/30          std::__allocated_ptr<std::allocator<std::_List_node<no> > >::__allocated_ptr(std::allocator<std::_List_node<no> >&, std::_List_node<no>*) [104]
+                0.00    0.00      30/120         no const& std::forward<no const&>(std::remove_reference<no const&>::type&) [77]
+                0.00    0.00      30/360         std::_List_node<no>::_M_valptr() [71]
+                0.00    0.00      30/30          void std::allocator_traits<std::allocator<std::_List_node<no> > >::construct<no, no const&>(std::allocator<std::_List_node<no> >&, no*, no const&) [110]
+                0.00    0.00      30/30          std::__allocated_ptr<std::allocator<std::_List_node<no> > >::operator=(decltype(nullptr)) [106]
+                0.00    0.00      30/30          std::__allocated_ptr<std::allocator<std::_List_node<no> > >::~__allocated_ptr() [105]
+-----------------------------------------------
+                0.00    0.00      30/30          std::__cxx11::list<no, std::allocator<no> >::push_back(no const&) [116]
+[115]    0.0    0.00    0.00      30         void std::__cxx11::list<no, std::allocator<no> >::_M_insert<no const&>(std::_List_iterator<no>, no const&) [115]
+                0.00    0.00      30/120         no const& std::forward<no const&>(std::remove_reference<no const&>::type&) [77]
+                0.00    0.00      30/30          std::_List_node<no>* std::__cxx11::list<no, std::allocator<no> >::_M_create_node<no const&>(no const&) [114]
+                0.00    0.00      30/30          std::__cxx11::_List_base<no, std::allocator<no> >::_M_inc_size(unsigned long long) [112]
+-----------------------------------------------
+                0.00    0.00      30/30          cria_aresta(std::__cxx11::list<no, std::allocator<no> >*, int, int, int) [122]
+[116]    0.0    0.00    0.00      30         std::__cxx11::list<no, std::allocator<no> >::push_back(no const&) [116]
+                0.00    0.00      30/213         std::__cxx11::list<no, std::allocator<no> >::end() [74]
+                0.00    0.00      30/30          void std::__cxx11::list<no, std::allocator<no> >::_M_insert<no const&>(std::_List_iterator<no>, no const&) [115]
+-----------------------------------------------
+                0.00    0.00      30/30          std::__allocated_ptr<std::allocator<std::_List_node<no> > >::__allocated_ptr(std::allocator<std::_List_node<no> >&, std::_List_node<no>*) [104]
+[117]    0.0    0.00    0.00      30         std::allocator<std::_List_node<no> >* std::__addressof<std::allocator<std::_List_node<no> > >(std::allocator<std::_List_node<no> >&) [117]
+-----------------------------------------------
+                0.00    0.00      13/26          std::__cxx11::_List_base<int, std::allocator<int> >::_M_clear() [153]
+                0.00    0.00      13/26          std::_List_node<int>* std::__cxx11::list<int, std::allocator<int> >::_M_create_node<int const&>(int const&) [141]
+[118]    0.0    0.00    0.00      26         std::__cxx11::_List_base<int, std::allocator<int> >::_M_get_Node_allocator() [118]
+-----------------------------------------------
+                0.00    0.00      18/18          dijkstra(std::__cxx11::list<no, std::allocator<no> >*, int, int, int, dado*, int&) [145]
+[119]    0.0    0.00    0.00      18         std::_List_iterator<int>::operator!=(std::_List_iterator<int> const&) const [119]
+-----------------------------------------------
+                0.00    0.00      18/18          dijkstra(std::__cxx11::list<no, std::allocator<no> >*, int, int, int, dado*, int&) [145]
+[120]    0.0    0.00    0.00      18         std::__cxx11::list<int, std::allocator<int> >::end() [120]
+                0.00    0.00      18/36          std::_List_iterator<int>::_List_iterator(std::__detail::_List_node_base*) [97]
+-----------------------------------------------
+                0.00    0.00       5/18          dijkstra(std::__cxx11::list<no, std::allocator<no> >*, int, int, int, dado*, int&) [145]
+                0.00    0.00      13/18          std::__cxx11::list<int, std::allocator<int> >::push_front(int const&) [140]
+[121]    0.0    0.00    0.00      18         std::__cxx11::list<int, std::allocator<int> >::begin() [121]
+                0.00    0.00      18/36          std::_List_iterator<int>::_List_iterator(std::__detail::_List_node_base*) [97]
+-----------------------------------------------
+                0.00    0.00      15/15          main [47]
+[122]    0.0    0.00    0.00      15         cria_aresta(std::__cxx11::list<no, std::allocator<no> >*, int, int, int) [122]
+                0.00    0.00      30/30          std::__cxx11::list<no, std::allocator<no> >::push_back(no const&) [116]
+-----------------------------------------------
+                0.00    0.00      13/13          std::allocator_traits<std::allocator<std::_List_node<int> > >::deallocate(std::allocator<std::_List_node<int> >&, std::_List_node<int>*, unsigned long long) [133]
+[123]    0.0    0.00    0.00      13         __gnu_cxx::new_allocator<std::_List_node<int> >::deallocate(std::_List_node<int>*, unsigned long long) [123]
+-----------------------------------------------
+                0.00    0.00      13/13          void std::allocator_traits<std::allocator<std::_List_node<int> > >::destroy<int>(std::allocator<std::_List_node<int> >&, int*) [134]
+[124]    0.0    0.00    0.00      13         void __gnu_cxx::new_allocator<std::_List_node<int> >::destroy<int>(int*) [124]
+-----------------------------------------------
+                0.00    0.00      13/13          std::allocator_traits<std::allocator<std::_List_node<int> > >::allocate(std::allocator<std::_List_node<int> >&, unsigned long long) [135]
+[125]    0.0    0.00    0.00      13         __gnu_cxx::new_allocator<std::_List_node<int> >::allocate(unsigned long long, void const*) [125]
+                0.00    0.00      13/13          __gnu_cxx::new_allocator<std::_List_node<int> >::max_size() const [127]
+-----------------------------------------------
+                0.00    0.00      13/13          void std::allocator_traits<std::allocator<std::_List_node<int> > >::construct<int, int const&>(std::allocator<std::_List_node<int> >&, int*, int const&) [136]
+[126]    0.0    0.00    0.00      13         void __gnu_cxx::new_allocator<std::_List_node<int> >::construct<int, int const&>(int*, int const&) [126]
+                0.00    0.00      13/52          int const& std::forward<int const&>(std::remove_reference<int const&>::type&) [92]
+                0.00    0.00      13/43          operator new(unsigned long long, void*) [93]
+-----------------------------------------------
+                0.00    0.00      13/13          __gnu_cxx::new_allocator<std::_List_node<int> >::allocate(unsigned long long, void const*) [125]
+[127]    0.0    0.00    0.00      13         __gnu_cxx::new_allocator<std::_List_node<int> >::max_size() const [127]
+-----------------------------------------------
+                0.00    0.00      13/13          dijkstra(std::__cxx11::list<no, std::allocator<no> >*, int, int, int, dado*, int&) [145]
+[128]    0.0    0.00    0.00      13         std::_List_iterator<int>::operator*() const [128]
+                0.00    0.00      13/39          std::_List_node<int>::_M_valptr() [96]
+-----------------------------------------------
+                0.00    0.00      13/13          dijkstra(std::__cxx11::list<no, std::allocator<no> >*, int, int, int, dado*, int&) [145]
+[129]    0.0    0.00    0.00      13         std::_List_iterator<int>::operator++(int) [129]
+-----------------------------------------------
+                0.00    0.00      13/13          std::_List_node<int>* std::__cxx11::list<int, std::allocator<int> >::_M_create_node<int const&>(int const&) [141]
+[130]    0.0    0.00    0.00      13         std::__allocated_ptr<std::allocator<std::_List_node<int> > >::__allocated_ptr(std::allocator<std::_List_node<int> >&, std::_List_node<int>*) [130]
+                0.00    0.00      13/13          std::allocator<std::_List_node<int> >* std::__addressof<std::allocator<std::_List_node<int> > >(std::allocator<std::_List_node<int> >&) [143]
+-----------------------------------------------
+                0.00    0.00      13/13          std::_List_node<int>* std::__cxx11::list<int, std::allocator<int> >::_M_create_node<int const&>(int const&) [141]
+[131]    0.0    0.00    0.00      13         std::__allocated_ptr<std::allocator<std::_List_node<int> > >::~__allocated_ptr() [131]
+-----------------------------------------------
+                0.00    0.00      13/13          std::_List_node<int>* std::__cxx11::list<int, std::allocator<int> >::_M_create_node<int const&>(int const&) [141]
+[132]    0.0    0.00    0.00      13         std::__allocated_ptr<std::allocator<std::_List_node<int> > >::operator=(decltype(nullptr)) [132]
+-----------------------------------------------
+                0.00    0.00      13/13          std::__cxx11::_List_base<int, std::allocator<int> >::_M_put_node(std::_List_node<int>*) [139]
+[133]    0.0    0.00    0.00      13         std::allocator_traits<std::allocator<std::_List_node<int> > >::deallocate(std::allocator<std::_List_node<int> >&, std::_List_node<int>*, unsigned long long) [133]
+                0.00    0.00      13/13          __gnu_cxx::new_allocator<std::_List_node<int> >::deallocate(std::_List_node<int>*, unsigned long long) [123]
+-----------------------------------------------
+                0.00    0.00      13/13          std::__cxx11::_List_base<int, std::allocator<int> >::_M_clear() [153]
+[134]    0.0    0.00    0.00      13         void std::allocator_traits<std::allocator<std::_List_node<int> > >::destroy<int>(std::allocator<std::_List_node<int> >&, int*) [134]
+                0.00    0.00      13/13          void __gnu_cxx::new_allocator<std::_List_node<int> >::destroy<int>(int*) [124]
+-----------------------------------------------
+                0.00    0.00      13/13          std::__cxx11::_List_base<int, std::allocator<int> >::_M_get_node() [137]
+[135]    0.0    0.00    0.00      13         std::allocator_traits<std::allocator<std::_List_node<int> > >::allocate(std::allocator<std::_List_node<int> >&, unsigned long long) [135]
+                0.00    0.00      13/13          __gnu_cxx::new_allocator<std::_List_node<int> >::allocate(unsigned long long, void const*) [125]
+-----------------------------------------------
+                0.00    0.00      13/13          std::_List_node<int>* std::__cxx11::list<int, std::allocator<int> >::_M_create_node<int const&>(int const&) [141]
+[136]    0.0    0.00    0.00      13         void std::allocator_traits<std::allocator<std::_List_node<int> > >::construct<int, int const&>(std::allocator<std::_List_node<int> >&, int*, int const&) [136]
+                0.00    0.00      13/52          int const& std::forward<int const&>(std::remove_reference<int const&>::type&) [92]
+                0.00    0.00      13/13          void __gnu_cxx::new_allocator<std::_List_node<int> >::construct<int, int const&>(int*, int const&) [126]
+-----------------------------------------------
+                0.00    0.00      13/13          std::_List_node<int>* std::__cxx11::list<int, std::allocator<int> >::_M_create_node<int const&>(int const&) [141]
+[137]    0.0    0.00    0.00      13         std::__cxx11::_List_base<int, std::allocator<int> >::_M_get_node() [137]
+                0.00    0.00      13/13          std::allocator_traits<std::allocator<std::_List_node<int> > >::allocate(std::allocator<std::_List_node<int> >&, unsigned long long) [135]
+-----------------------------------------------
+                0.00    0.00      13/13          void std::__cxx11::list<int, std::allocator<int> >::_M_insert<int const&>(std::_List_iterator<int>, int const&) [142]
+[138]    0.0    0.00    0.00      13         std::__cxx11::_List_base<int, std::allocator<int> >::_M_inc_size(unsigned long long) [138]
+-----------------------------------------------
+                0.00    0.00      13/13          std::__cxx11::_List_base<int, std::allocator<int> >::_M_clear() [153]
+[139]    0.0    0.00    0.00      13         std::__cxx11::_List_base<int, std::allocator<int> >::_M_put_node(std::_List_node<int>*) [139]
+                0.00    0.00      13/13          std::allocator_traits<std::allocator<std::_List_node<int> > >::deallocate(std::allocator<std::_List_node<int> >&, std::_List_node<int>*, unsigned long long) [133]
+-----------------------------------------------
+                0.00    0.00      13/13          dijkstra(std::__cxx11::list<no, std::allocator<no> >*, int, int, int, dado*, int&) [145]
+[140]    0.0    0.00    0.00      13         std::__cxx11::list<int, std::allocator<int> >::push_front(int const&) [140]
+                0.00    0.00      13/18          std::__cxx11::list<int, std::allocator<int> >::begin() [121]
+                0.00    0.00      13/13          void std::__cxx11::list<int, std::allocator<int> >::_M_insert<int const&>(std::_List_iterator<int>, int const&) [142]
+-----------------------------------------------
+                0.00    0.00      13/13          void std::__cxx11::list<int, std::allocator<int> >::_M_insert<int const&>(std::_List_iterator<int>, int const&) [142]
+[141]    0.0    0.00    0.00      13         std::_List_node<int>* std::__cxx11::list<int, std::allocator<int> >::_M_create_node<int const&>(int const&) [141]
+                0.00    0.00      13/13          std::__cxx11::_List_base<int, std::allocator<int> >::_M_get_node() [137]
+                0.00    0.00      13/26          std::__cxx11::_List_base<int, std::allocator<int> >::_M_get_Node_allocator() [118]
+                0.00    0.00      13/13          std::__allocated_ptr<std::allocator<std::_List_node<int> > >::__allocated_ptr(std::allocator<std::_List_node<int> >&, std::_List_node<int>*) [130]
+                0.00    0.00      13/52          int const& std::forward<int const&>(std::remove_reference<int const&>::type&) [92]
+                0.00    0.00      13/39          std::_List_node<int>::_M_valptr() [96]
+                0.00    0.00      13/13          void std::allocator_traits<std::allocator<std::_List_node<int> > >::construct<int, int const&>(std::allocator<std::_List_node<int> >&, int*, int const&) [136]
+                0.00    0.00      13/13          std::__allocated_ptr<std::allocator<std::_List_node<int> > >::operator=(decltype(nullptr)) [132]
+                0.00    0.00      13/13          std::__allocated_ptr<std::allocator<std::_List_node<int> > >::~__allocated_ptr() [131]
+-----------------------------------------------
+                0.00    0.00      13/13          std::__cxx11::list<int, std::allocator<int> >::push_front(int const&) [140]
+[142]    0.0    0.00    0.00      13         void std::__cxx11::list<int, std::allocator<int> >::_M_insert<int const&>(std::_List_iterator<int>, int const&) [142]
+                0.00    0.00      13/52          int const& std::forward<int const&>(std::remove_reference<int const&>::type&) [92]
+                0.00    0.00      13/13          std::_List_node<int>* std::__cxx11::list<int, std::allocator<int> >::_M_create_node<int const&>(int const&) [141]
+                0.00    0.00      13/13          std::__cxx11::_List_base<int, std::allocator<int> >::_M_inc_size(unsigned long long) [138]
+-----------------------------------------------
+                0.00    0.00      13/13          std::__allocated_ptr<std::allocator<std::_List_node<int> > >::__allocated_ptr(std::allocator<std::_List_node<int> >&, std::_List_node<int>*) [130]
+[143]    0.0    0.00    0.00      13         std::allocator<std::_List_node<int> >* std::__addressof<std::allocator<std::_List_node<int> > >(std::allocator<std::_List_node<int> >&) [143]
+-----------------------------------------------
+                0.00    0.00       1/6           main [47]
+                0.00    0.00       5/6           dijkstra(std::__cxx11::list<no, std::allocator<no> >*, int, int, int, dado*, int&) [145]
+[144]    0.0    0.00    0.00       6         std::_List_iterator<no>::_List_iterator() [144]
+-----------------------------------------------
+                0.00    0.00       5/5           mochila(int, int, int, int, int*, dado*, int, std::__cxx11::list<no, std::allocator<no> >*) [158]
+[145]    0.0    0.00    0.00       5         dijkstra(std::__cxx11::list<no, std::allocator<no> >*, int, int, int, dado*, int&) [145]
+                0.00    0.00     300/300         std::_List_iterator<no>::operator->() const [72]
+                0.00    0.00     183/213         std::__cxx11::list<no, std::allocator<no> >::end() [74]
+                0.00    0.00     183/183         std::_List_iterator<no>::operator!=(std::_List_iterator<no> const&) const [75]
+                0.00    0.00     150/150         std::_List_iterator<no>::operator++(int) [76]
+                0.00    0.00      33/33          std::__cxx11::list<no, std::allocator<no> >::begin() [98]
+                0.00    0.00      18/18          std::__cxx11::list<int, std::allocator<int> >::end() [120]
+                0.00    0.00      18/18          std::_List_iterator<int>::operator!=(std::_List_iterator<int> const&) const [119]
+                0.00    0.00      13/13          std::__cxx11::list<int, std::allocator<int> >::push_front(int const&) [140]
+                0.00    0.00      13/13          std::_List_iterator<int>::operator*() const [128]
+                0.00    0.00      13/13          std::_List_iterator<int>::operator++(int) [129]
+                0.00    0.00       5/5           std::__cxx11::list<int, std::allocator<int> >::list() [156]
+                0.00    0.00       5/6           std::_List_iterator<no>::_List_iterator() [144]
+                0.00    0.00       5/5           std::_List_iterator<int>::_List_iterator() [150]
+                0.00    0.00       5/18          std::__cxx11::list<int, std::allocator<int> >::begin() [121]
+                0.00    0.00       5/5           std::__cxx11::list<int, std::allocator<int> >::~list() [157]
+-----------------------------------------------
+                0.00    0.00       5/5           std::allocator<std::_List_node<int> >::allocator() [148]
+[146]    0.0    0.00    0.00       5         __gnu_cxx::new_allocator<std::_List_node<int> >::new_allocator() [146]
+-----------------------------------------------
+                0.00    0.00       5/5           std::allocator<std::_List_node<int> >::~allocator() [149]
+[147]    0.0    0.00    0.00       5         __gnu_cxx::new_allocator<std::_List_node<int> >::~new_allocator() [147]
+-----------------------------------------------
+                0.00    0.00       5/5           std::__cxx11::_List_base<int, std::allocator<int> >::_List_impl::_List_impl() [151]
+[148]    0.0    0.00    0.00       5         std::allocator<std::_List_node<int> >::allocator() [148]
+                0.00    0.00       5/5           __gnu_cxx::new_allocator<std::_List_node<int> >::new_allocator() [146]
+-----------------------------------------------
+                0.00    0.00       5/5           std::__cxx11::_List_base<int, std::allocator<int> >::_List_impl::~_List_impl() [152]
+[149]    0.0    0.00    0.00       5         std::allocator<std::_List_node<int> >::~allocator() [149]
+                0.00    0.00       5/5           __gnu_cxx::new_allocator<std::_List_node<int> >::~new_allocator() [147]
+-----------------------------------------------
+                0.00    0.00       5/5           dijkstra(std::__cxx11::list<no, std::allocator<no> >*, int, int, int, dado*, int&) [145]
+[150]    0.0    0.00    0.00       5         std::_List_iterator<int>::_List_iterator() [150]
+-----------------------------------------------
+                0.00    0.00       5/5           std::__cxx11::_List_base<int, std::allocator<int> >::_List_base() [154]
+[151]    0.0    0.00    0.00       5         std::__cxx11::_List_base<int, std::allocator<int> >::_List_impl::_List_impl() [151]
+                0.00    0.00       5/5           std::allocator<std::_List_node<int> >::allocator() [148]
+                0.00    0.00       5/105         std::__detail::_List_node_header::_List_node_header() [79]
+-----------------------------------------------
+                0.00    0.00       5/5           std::__cxx11::_List_base<int, std::allocator<int> >::~_List_base() [155]
+[152]    0.0    0.00    0.00       5         std::__cxx11::_List_base<int, std::allocator<int> >::_List_impl::~_List_impl() [152]
+                0.00    0.00       5/5           std::allocator<std::_List_node<int> >::~allocator() [149]
+-----------------------------------------------
+                0.00    0.00       5/5           std::__cxx11::_List_base<int, std::allocator<int> >::~_List_base() [155]
+[153]    0.0    0.00    0.00       5         std::__cxx11::_List_base<int, std::allocator<int> >::_M_clear() [153]
+                0.00    0.00      13/39          std::_List_node<int>::_M_valptr() [96]
+                0.00    0.00      13/26          std::__cxx11::_List_base<int, std::allocator<int> >::_M_get_Node_allocator() [118]
+                0.00    0.00      13/13          void std::allocator_traits<std::allocator<std::_List_node<int> > >::destroy<int>(std::allocator<std::_List_node<int> >&, int*) [134]
+                0.00    0.00      13/13          std::__cxx11::_List_base<int, std::allocator<int> >::_M_put_node(std::_List_node<int>*) [139]
+-----------------------------------------------
+                0.00    0.00       5/5           std::__cxx11::list<int, std::allocator<int> >::list() [156]
+[154]    0.0    0.00    0.00       5         std::__cxx11::_List_base<int, std::allocator<int> >::_List_base() [154]
+                0.00    0.00       5/5           std::__cxx11::_List_base<int, std::allocator<int> >::_List_impl::_List_impl() [151]
+-----------------------------------------------
+                0.00    0.00       5/5           std::__cxx11::list<int, std::allocator<int> >::~list() [157]
+[155]    0.0    0.00    0.00       5         std::__cxx11::_List_base<int, std::allocator<int> >::~_List_base() [155]
+                0.00    0.00       5/5           std::__cxx11::_List_base<int, std::allocator<int> >::_M_clear() [153]
+                0.00    0.00       5/5           std::__cxx11::_List_base<int, std::allocator<int> >::_List_impl::~_List_impl() [152]
+-----------------------------------------------
+                0.00    0.00       5/5           dijkstra(std::__cxx11::list<no, std::allocator<no> >*, int, int, int, dado*, int&) [145]
+[156]    0.0    0.00    0.00       5         std::__cxx11::list<int, std::allocator<int> >::list() [156]
+                0.00    0.00       5/5           std::__cxx11::_List_base<int, std::allocator<int> >::_List_base() [154]
+-----------------------------------------------
+                0.00    0.00       5/5           dijkstra(std::__cxx11::list<no, std::allocator<no> >*, int, int, int, dado*, int&) [145]
+[157]    0.0    0.00    0.00       5         std::__cxx11::list<int, std::allocator<int> >::~list() [157]
+                0.00    0.00       5/5           std::__cxx11::_List_base<int, std::allocator<int> >::~_List_base() [155]
+-----------------------------------------------
+                0.00    0.00       1/1           main [47]
+[158]    0.0    0.00    0.00       1         mochila(int, int, int, int, int*, dado*, int, std::__cxx11::list<no, std::allocator<no> >*) [158]
+                0.00    0.00       5/5           dijkstra(std::__cxx11::list<no, std::allocator<no> >*, int, int, int, dado*, int&) [145]
+-----------------------------------------------
+                                   4             quickSort(dado*, int, int, int) [159]
+                0.00    0.00       1/1           main [47]
+[159]    0.0    0.00    0.00       1+4       quickSort(dado*, int, int, int) [159]
+                                   4             quickSort(dado*, int, int, int) [159]
+-----------------------------------------------
+
+ This table describes the call tree of the program, and was sorted by
+ the total amount of time spent in each function and its children.
+
+ Each entry in this table consists of several lines.  The line with the
+ index number at the left hand margin lists the current function.
+ The lines above it list the functions that called this function,
+ and the lines below it list the functions this one called.
+ This line lists:
+     index	A unique number given to each element of the table.
+		Index numbers are sorted numerically.
+		The index number is printed next to every function name so
+		it is easier to look up where the function is in the table.
+
+     % time	This is the percentage of the `total' time that was spent
+		in this function and its children.  Note that due to
+		different viewpoints, functions excluded by options, etc,
+		these numbers will NOT add up to 100%.
+
+     self	This is the total amount of time spent in this function.
+
+     children	This is the total amount of time propagated into this
+		function by its children.
+
+     called	This is the number of times the function was called.
+		If the function called itself recursively, the number
+		only includes non-recursive calls, and is followed by
+		a `+' and the number of recursive calls.
+
+     name	The name of the current function.  The index number is
+		printed after it.  If the function is a member of a
+		cycle, the cycle number is printed between the
+		function's name and the index number.
+
+
+ For the function's parents, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the function into this parent.
+
+     children	This is the amount of time that was propagated from
+		the function's children into this parent.
+
+     called	This is the number of times this parent called the
+		function `/' the total number of times the function
+		was called.  Recursive calls to the function are not
+		included in the number after the `/'.
+
+     name	This is the name of the parent.  The parent's index
+		number is printed after it.  If the parent is a
+		member of a cycle, the cycle number is printed between
+		the name and the index number.
+
+ If the parents of the function cannot be determined, the word
+ `<spontaneous>' is printed in the `name' field, and all the other
+ fields are blank.
+
+ For the function's children, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the child into the function.
+
+     children	This is the amount of time that was propagated from the
+		child's children to the function.
+
+     called	This is the number of times the function called
+		this child `/' the total number of times the child
+		was called.  Recursive calls by the child are not
+		listed in the number after the `/'.
+
+     name	This is the name of the child.  The child's index
+		number is printed after it.  If the child is a
+		member of a cycle, the cycle number is printed
+		between the name and the index number.
+
+ If there are any cycles (circles) in the call graph, there is an
+ entry for the cycle-as-a-whole.  This entry shows who called the
+ cycle (as parents) and the members of the cycle (as children.)
+ The `+' recursive calls entry shows the number of function calls that
+ were internal to the cycle, and the calls entry for each member shows,
+ for that member, how many times it was called from other members of
+ the cycle.
+
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+Index by function name
+
+ [122] cria_aresta(std::__cxx11::list<no, std::allocator<no> >*, int, int, int) [96] std::_List_node<int>::_M_valptr() [152] std::__cxx11::_List_base<int, std::allocator<int> >::_List_impl::~_List_impl()
+ [158] mochila(int, int, int, int, int*, dado*, int, std::__cxx11::list<no, std::allocator<no> >*) [73] std::_List_iterator<no>::_List_iterator(std::__detail::_List_node_base*) [137] std::__cxx11::_List_base<int, std::allocator<int> >::_M_get_node()
+ [145] dijkstra(std::__cxx11::list<no, std::allocator<no> >*, int, int, int, dado*, int&) [144] std::_List_iterator<no>::_List_iterator() [138] std::__cxx11::_List_base<int, std::allocator<int> >::_M_inc_size(unsigned long long)
+ [159] quickSort(dado*, int, int, int) [76] std::_List_iterator<no>::operator++(int) [139] std::__cxx11::_List_base<int, std::allocator<int> >::_M_put_node(std::_List_node<int>*)
+  [99] __gnu_cxx::new_allocator<std::_List_node<no> >::deallocate(std::_List_node<no>*, unsigned long long) [97] std::_List_iterator<int>::_List_iterator(std::__detail::_List_node_base*) [118] std::__cxx11::_List_base<int, std::allocator<int> >::_M_get_Node_allocator()
+ [100] void __gnu_cxx::new_allocator<std::_List_node<no> >::destroy<no>(no*) [150] std::_List_iterator<int>::_List_iterator() [153] std::__cxx11::_List_base<int, std::allocator<int> >::_M_clear()
+ [101] __gnu_cxx::new_allocator<std::_List_node<no> >::allocate(unsigned long long, void const*) [129] std::_List_iterator<int>::operator++(int) [154] std::__cxx11::_List_base<int, std::allocator<int> >::_List_base()
+ [102] void __gnu_cxx::new_allocator<std::_List_node<no> >::construct<no, no const&>(no*, no const&) [104] std::__allocated_ptr<std::allocator<std::_List_node<no> > >::__allocated_ptr(std::allocator<std::_List_node<no> >&, std::_List_node<no>*) [155] std::__cxx11::_List_base<int, std::allocator<int> >::~_List_base()
+  [80] __gnu_cxx::new_allocator<std::_List_node<no> >::new_allocator() [105] std::__allocated_ptr<std::allocator<std::_List_node<no> > >::~__allocated_ptr() [114] std::_List_node<no>* std::__cxx11::list<no, std::allocator<no> >::_M_create_node<no const&>(no const&)
+  [81] __gnu_cxx::new_allocator<std::_List_node<no> >::~new_allocator() [106] std::__allocated_ptr<std::allocator<std::_List_node<no> > >::operator=(decltype(nullptr)) [74] std::__cxx11::list<no, std::allocator<no> >::end()
+ [123] __gnu_cxx::new_allocator<std::_List_node<int> >::deallocate(std::_List_node<int>*, unsigned long long) [130] std::__allocated_ptr<std::allocator<std::_List_node<int> > >::__allocated_ptr(std::allocator<std::_List_node<int> >&, std::_List_node<int>*) [98] std::__cxx11::list<no, std::allocator<no> >::begin()
+ [124] void __gnu_cxx::new_allocator<std::_List_node<int> >::destroy<int>(int*) [131] std::__allocated_ptr<std::allocator<std::_List_node<int> > >::~__allocated_ptr() [115] void std::__cxx11::list<no, std::allocator<no> >::_M_insert<no const&>(std::_List_iterator<no>, no const&)
+ [125] __gnu_cxx::new_allocator<std::_List_node<int> >::allocate(unsigned long long, void const*) [132] std::__allocated_ptr<std::allocator<std::_List_node<int> > >::operator=(decltype(nullptr)) [116] std::__cxx11::list<no, std::allocator<no> >::push_back(no const&)
+ [126] void __gnu_cxx::new_allocator<std::_List_node<int> >::construct<int, int const&>(int*, int const&) [107] std::allocator_traits<std::allocator<std::_List_node<no> > >::deallocate(std::allocator<std::_List_node<no> >&, std::_List_node<no>*, unsigned long long) [89] std::__cxx11::list<no, std::allocator<no> >::list()
+ [146] __gnu_cxx::new_allocator<std::_List_node<int> >::new_allocator() [108] void std::allocator_traits<std::allocator<std::_List_node<no> > >::destroy<no>(std::allocator<std::_List_node<no> >&, no*) [90] std::__cxx11::list<no, std::allocator<no> >::~list()
+ [147] __gnu_cxx::new_allocator<std::_List_node<int> >::~new_allocator() [109] std::allocator_traits<std::allocator<std::_List_node<no> > >::allocate(std::allocator<std::_List_node<no> >&, unsigned long long) [140] std::__cxx11::list<int, std::allocator<int> >::push_front(int const&)
+  [69] __gnu_cxx::__aligned_membuf<no>::_M_ptr() [110] void std::allocator_traits<std::allocator<std::_List_node<no> > >::construct<no, no const&>(std::allocator<std::_List_node<no> >&, no*, no const&) [141] std::_List_node<int>* std::__cxx11::list<int, std::allocator<int> >::_M_create_node<int const&>(int const&)
+  [70] __gnu_cxx::__aligned_membuf<no>::_M_addr() [133] std::allocator_traits<std::allocator<std::_List_node<int> > >::deallocate(std::allocator<std::_List_node<int> >&, std::_List_node<int>*, unsigned long long) [120] std::__cxx11::list<int, std::allocator<int> >::end()
+  [94] __gnu_cxx::__aligned_membuf<int>::_M_ptr() [134] void std::allocator_traits<std::allocator<std::_List_node<int> > >::destroy<int>(std::allocator<std::_List_node<int> >&, int*) [121] std::__cxx11::list<int, std::allocator<int> >::begin()
+  [95] __gnu_cxx::__aligned_membuf<int>::_M_addr() [135] std::allocator_traits<std::allocator<std::_List_node<int> > >::allocate(std::allocator<std::_List_node<int> >&, unsigned long long) [142] void std::__cxx11::list<int, std::allocator<int> >::_M_insert<int const&>(std::_List_iterator<int>, int const&)
+ [103] __gnu_cxx::new_allocator<std::_List_node<no> >::max_size() const [136] void std::allocator_traits<std::allocator<std::_List_node<int> > >::construct<int, int const&>(std::allocator<std::_List_node<int> >&, int*, int const&) [156] std::__cxx11::list<int, std::allocator<int> >::list()
+ [127] __gnu_cxx::new_allocator<std::_List_node<int> >::max_size() const [84] std::__cxx11::_List_base<no, std::allocator<no> >::_List_impl::_List_impl() [157] std::__cxx11::list<int, std::allocator<int> >::~list()
+  [75] std::_List_iterator<no>::operator!=(std::_List_iterator<no> const&) const [85] std::__cxx11::_List_base<no, std::allocator<no> >::_List_impl::~_List_impl() [78] std::__detail::_List_node_header::_M_init()
+  [72] std::_List_iterator<no>::operator->() const [111] std::__cxx11::_List_base<no, std::allocator<no> >::_M_get_node() [79] std::__detail::_List_node_header::_List_node_header()
+ [128] std::_List_iterator<int>::operator*() const [112] std::__cxx11::_List_base<no, std::allocator<no> >::_M_inc_size(unsigned long long) [117] std::allocator<std::_List_node<no> >* std::__addressof<std::allocator<std::_List_node<no> > >(std::allocator<std::_List_node<no> >&)
+ [119] std::_List_iterator<int>::operator!=(std::_List_iterator<int> const&) const [113] std::__cxx11::_List_base<no, std::allocator<no> >::_M_put_node(std::_List_node<no>*) [143] std::allocator<std::_List_node<int> >* std::__addressof<std::allocator<std::_List_node<int> > >(std::allocator<std::_List_node<int> >&)
+  [82] std::allocator<std::_List_node<no> >::allocator() [91] std::__cxx11::_List_base<no, std::allocator<no> >::_M_get_Node_allocator() [77] no const& std::forward<no const&>(std::remove_reference<no const&>::type&)
+  [83] std::allocator<std::_List_node<no> >::~allocator() [86] std::__cxx11::_List_base<no, std::allocator<no> >::_M_clear() [92] int const& std::forward<int const&>(std::remove_reference<int const&>::type&)
+ [148] std::allocator<std::_List_node<int> >::allocator() [87] std::__cxx11::_List_base<no, std::allocator<no> >::_List_base() [93] operator new(unsigned long long, void*)
+ [149] std::allocator<std::_List_node<int> >::~allocator() [88] std::__cxx11::_List_base<no, std::allocator<no> >::~_List_base()
+  [71] std::_List_node<no>::_M_valptr() [151] std::__cxx11::_List_base<int, std::allocator<int> >::_List_impl::_List_impl()

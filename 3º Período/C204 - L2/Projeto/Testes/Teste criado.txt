@@ -1,0 +1,35 @@
+4
+2
+1 2 3
+1 3 4
+1 4 6
+2 3 10
+2 4 1
+3 4 3
+-1 -1 -1
+
+
+3
+3 5
+1 8
+2 6
+
+
+3
+18
+9 8 6
+
+
+Saída de dados
+Motoboy 3 pegou o(s) item(ns): 1 3
+Menor caminho: 2 1
+Menor caminho: 1 3
+Ele gastou 7 min
+
+Motoboy 2 pegou o(s) item(ns): 4
+Menor caminho: 2 4
+Ele gastou 1 min
+
+Motoboy 1 nao pegou nenhum item
+Nao realizou entregas
+Nao teve tempo de entrega

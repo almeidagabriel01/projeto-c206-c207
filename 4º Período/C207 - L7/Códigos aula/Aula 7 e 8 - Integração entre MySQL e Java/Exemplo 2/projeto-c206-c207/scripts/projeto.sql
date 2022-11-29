@@ -1,0 +1,23 @@
+DROP DATABASE IF EXISTS projeto;
+
+CREATE DATABASE projeto;
+
+USE projeto;
+
+CREATE TABLE Curso (
+	id INT AUTO_INCREMENT,
+	nome VARCHAR(50) NOT NULL,
+	PRIMARY KEY (id)
+);
+
+CREATE TABLE Aluno (
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	nome VARCHAR(50) NOT NULL,
+	matricula INT NOT NULL,
+	fk_id_curso INT,
+	CONSTRAINT fk1
+		FOREIGN KEY (fk_id_curso)
+        REFERENCES Curso (id)
+		ON UPDATE CASCADE
+        ON DELETE CASCADE
+);

@@ -1,0 +1,25 @@
+
+---------------------------
+Local: São Paulo
+
+Descrição: Achar o Fred
+
+Suspeitos: 
+Nome: Maria
+Idade: 30
+Profissão: Engenheira
+
+Nome: Kleber
+Idade: 40
+Profissão: Detetive
+
+Nome: Joao
+Idade: 20
+Profissão: Programador
+
+
+Pistas: 
+Não está nessa cidade
+Está em uma faculdade
+
+---------------------------
