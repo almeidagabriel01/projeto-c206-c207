@@ -1,8 +1,0 @@
-Notion
-https://www.notion.so/bio353/C207-L2-f686cff9bffa4741a0b0275000104a5e
-
-GitHub do Projeto
-https://github.com/bio353/projeto-c206-c207
-
-Maven Repository
-https://mvnrepository.com

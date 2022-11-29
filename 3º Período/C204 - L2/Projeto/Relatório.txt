@@ -1,9 +1,0 @@
-O nosso projeto foi desenvolvido do zero usando algumas lógicas que fomos inventando ao longo do desenvolvimento. Criamos a nossa própria lógica para a escolha dos itens da mochila, o Dijkstra para o cálculo do menor custo com o caminho que passe pelas cidades que precisam e o quicksort para ordenar o vetor de motoboys por ordem do mais perto do supermercado, que tem uma maior prioridade.
-
-
-Funcionamento:
-Desenvolvemos uma lógica que criamos uma struct de motoboys e com a entrada da distância até o supermercado e a identificação de cada motoboy, a função quicksort irá ordenar dando prioridade de escolha para os itens para o entregador mais próximo. Assim, os itens escolhido será os itens que ele for vendo que cabe na mochila a medida que o vetor de itens vai sendo passado. Com os itens escolhidos para todos os motoboys, a função dijkstra irá ser chamada a fim de calcular o caminho com o menor custo que passe pelas cidades de onde pegou a compra. O intuito de termos pensado nessa lógica, era com que fosse entregues simultâneamente, a medida que um entregador realiza seu objetivo, o outro entregador irá realizar simultaneamente.
-
-g++ –g –pg –o main.exe main.cpp
-main.exe
-gprof main.exe > report.txt
