@@ -62,8 +62,8 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `Biblioteca`.`Conta_fazEmpréstimo_Acervo` (
   `Acervo_idAcervo` INT NOT NULL,
   `Conta_idConta` INT NOT NULL,
-  `dataEmpréstimo` DATE NOT NULL,
-  `dataDevolução` DATE NOT NULL,
+  `dataEmpréstimo` VARCHAR(15) NOT NULL,
+  `dataDevolução` VARCHAR(15) NOT NULL,
   `itens` VARCHAR(100) NOT NULL,
   `qtdRenovados` INT NOT NULL,
   PRIMARY KEY (`Acervo_idAcervo`, `Conta_idConta`),

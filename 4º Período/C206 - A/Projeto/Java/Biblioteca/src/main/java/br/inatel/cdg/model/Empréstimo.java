@@ -1,7 +1,8 @@
 package br.inatel.cdg.model;
 
 public class Empréstimo {
-    private int idEmprestimo;
+    private int Conta_idConta;
+    private int Acervo_idAcervo;
     private String dataEmprestimo;
     private String dataDevolucao;
     private String itens;
@@ -30,16 +31,11 @@ public class Empréstimo {
         return qtdRenovado;
     }
 
-    public int getIdEmprestimo() {
-        return idEmprestimo;
+    public int getidConta() {
+        return Conta_idConta;
     }
 
-    public int setId(int Id) {
-        this.idEmprestimo = Id;
-        return Id;
-    }
-
-    public int getId() {
-        return idEmprestimo;
+    public int getidAcervo() {
+        return Acervo_idAcervo;
     }
 }
