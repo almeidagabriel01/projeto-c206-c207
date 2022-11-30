@@ -1,6 +1,6 @@
 package br.inatel.cdg.controller;
 
-import br.inatel.cdg.model.Empréstimo;
+import br.inatel.cdg.model.Acervo;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -8,15 +8,13 @@ import java.util.ArrayList;
 public class AcervoDB extends Database{
     private boolean check = false;
 
-    public boolean insertEmpréstimo(Empréstimo empréstimo) {
+    public boolean insertAcervo(Acervo acervo) {
         connect();
-        String sql = "INSERT INTO Conta_fazEmpréstimo_Acervo (dataEmpréstimo, dataDevolução, itens, qtdRenovados) VALUES (?, ?, ?, ?);";
+        String sql = "INSERT INTO Acervo (cdu, título) VALUES (?, ?);";
         try {
             pst = connection.prepareStatement(sql);
-            pst.setString(1, empréstimo.getDataEmprestimo());
-            pst.setString(2, empréstimo.getDataDevolucao());
-            pst.setString(3, empréstimo.getItens());
-            pst.setInt(4, empréstimo.getQtdRenovado());
+            pst.setString(1, acervo.getCDU());
+            pst.setString(2, acervo.getTitulo());
             pst.execute();
             check = true;
         } catch (SQLException error) {
@@ -30,38 +28,6 @@ public class AcervoDB extends Database{
             }
         }
         return check;
-    }
-
-    public ArrayList<Empréstimo> selectEmpréstimo() {
-        connect();
-        ArrayList<Empréstimo> empréstimos = new ArrayList<>();
-        String sql = "SELECT * FROM Conta_fazEmpréstimo_Acervo;";
-        try {
-            statement = connection.createStatement();
-            result = statement.executeQuery(sql);
-            while (result.next()) {
-                Empréstimo empréstimo = new Empréstimo(result.getString("dataEmpréstimo"), result.getString("dataDevolução"), result.getString("itens"), result.getInt("qtdRenovados"));
-                System.out.println("Id conta= " + result.getInt("Conta_idConta"));
-                System.out.println("Id acervo = " + result.getInt("Acervo_idAcervo"));
-                System.out.println("Data empréstimo = " + result.getString("dataEmpréstimo"));
-                System.out.println("Data devolução = " + result.getString("dataDevolução"));
-                System.out.println("Itens = " + result.getString("itens"));
-                System.out.println("Qtd renovados = " + result.getInt("qtdRenovados"));
-                System.out.println("--------------------");
-                empréstimos.add(empréstimo);
-            }
-        } catch (SQLException error) {
-            System.out.println("Operation Error: " + error.getMessage());
-        } finally {
-            try {
-                connection.close();
-                statement.close();
-                result.close();
-            } catch (SQLException error) {
-                System.out.println("Connection Closure Error: " + error.getMessage());
-            }
-        }
-        return empréstimos;
     }
 
     public boolean updateDataEmpréstimo(int Conta_idConta, int Acervo_idAcervo,String dataEmpréstimo) {

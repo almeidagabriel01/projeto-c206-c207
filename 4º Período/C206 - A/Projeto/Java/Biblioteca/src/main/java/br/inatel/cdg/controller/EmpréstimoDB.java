@@ -1,6 +1,5 @@
 package br.inatel.cdg.controller;
 
-import br.inatel.cdg.model.Artigo;
 import br.inatel.cdg.model.Empréstimo;
 
 import java.sql.SQLException;
