@@ -7,8 +7,8 @@ public class Livro extends Acervo{
     private String edição;
     private boolean status;
 
-    public Livro(int numRegistro, String titulo, String CDU, String autor, String editora, String edição) {
-        super(numRegistro, titulo, CDU);
+    public Livro(String titulo, String CDU, String autor, String editora, String edição) {
+        super(titulo, CDU);
         this.autor = autor;
         this.editora = editora;
         this.edição = edição;

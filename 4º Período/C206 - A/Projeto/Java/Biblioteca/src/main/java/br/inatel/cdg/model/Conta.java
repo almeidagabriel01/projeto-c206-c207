@@ -3,6 +3,8 @@ package br.inatel.cdg.model;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class Conta {
@@ -11,8 +13,6 @@ public class Conta {
     private String senha;
     private Usuário usuário;
     private Acervo acervo;
-    private List<Livro> livros;
-
     private Empréstimo empréstimo;
 
     public Conta(String user, String senha) {
@@ -31,22 +31,23 @@ public class Conta {
     public void Cadastro(Usuário usuário, String user, String senha) {
 
         this.usuário = usuário;
-
         this.user = user;
         this.senha = senha;
     }
 
-    public boolean validarCadastro(String user){
-
-    }
-
-    public void devolveLivro(Livro livro) {
-        this.livros.remove(livro);
+    public boolean validarCadastro(ArrayList<String> selectUser, String user){
+        for(int i=0;i<selectUser.size();i++){
+            if(selectUser.get(i) == user);
+                return true;
+        }
+        return false;
     }
 
     public void fazEmprestimo(Empréstimo empréstimo) {
         this.empréstimo = empréstimo;
     }
+
+    public  void pesquisarLivros()
 
     public int getIdConta() {
         return idConta;
