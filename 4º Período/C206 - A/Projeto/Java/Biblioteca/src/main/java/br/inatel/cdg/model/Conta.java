@@ -56,4 +56,12 @@ public class Conta {
         this.idConta = Id;
         return Id;
     }
+
+    public String getUser() {
+        return user;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
 }
