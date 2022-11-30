@@ -2,12 +2,10 @@ package br.inatel.cdg.model;
 
 public abstract class Acervo {
     private int idAcervo;
-    private int numRegistro;
     private String titulo;
     private String CDU;
 
-    public Acervo(int numRegistro, String titulo, String CDU) {
-        this.numRegistro = numRegistro;
+    public Acervo(String titulo, String CDU) {
         this.titulo = titulo;
         this.CDU = CDU;
     }
@@ -18,10 +16,6 @@ public abstract class Acervo {
 
     public int getId() {
         return idAcervo;
-    }
-
-    public int getNumRegistro() {
-        return numRegistro;
     }
 
     public String getTitulo() {

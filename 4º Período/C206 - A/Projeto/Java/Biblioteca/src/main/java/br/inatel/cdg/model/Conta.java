@@ -1,5 +1,8 @@
 package br.inatel.cdg.model;
 
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 
 public class Conta {
@@ -26,13 +29,15 @@ public class Conta {
     }
 
     public void Cadastro(Usuário usuário, String user, String senha) {
+
         this.usuário = usuário;
+
         this.user = user;
         this.senha = senha;
     }
 
-    public void reservaLivro(Livro livro) {
-        this.livros.add(livro);
+    public boolean validarCadastro(String user){
+
     }
 
     public void devolveLivro(Livro livro) {

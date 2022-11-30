@@ -5,6 +5,7 @@ public class Livro extends Acervo{
     private String autor;
     private String editora;
     private String edição;
+    private boolean status;
 
     public Livro(int numRegistro, String titulo, String CDU, String autor, String editora, String edição) {
         super(numRegistro, titulo, CDU);
