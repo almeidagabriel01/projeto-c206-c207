@@ -27,19 +27,6 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `Biblioteca`.`Empréstimo`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `Biblioteca`.`Empréstimo` (
-  `idEmpréstimo` INT NOT NULL AUTO_INCREMENT,
-  `dataEmpréstimo` DATE NOT NULL,
-  `dataDevolução` DATE NOT NULL,
-  `itens` VARCHAR(100) NOT NULL,
-  `qtdRenovados` INT NOT NULL,
-  PRIMARY KEY (`idEmpréstimo`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
 -- Table `Biblioteca`.`Conta`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Biblioteca`.`Conta` (
@@ -47,18 +34,11 @@ CREATE TABLE IF NOT EXISTS `Biblioteca`.`Conta` (
   `user` VARCHAR(30) NOT NULL,
   `senha` VARCHAR(40) NOT NULL,
   `Usuário_cpf` VARCHAR(11) NOT NULL,
-  `Empréstimo_idEmpréstimo` INT NOT NULL,
   PRIMARY KEY (`idConta`),
   INDEX `fk_Conta_Usuário_idx` (`Usuário_cpf` ASC) VISIBLE,
-  INDEX `fk_Conta_Empréstimo1_idx` (`Empréstimo_idEmpréstimo` ASC) VISIBLE,
   CONSTRAINT `fk_Conta_Usuário`
     FOREIGN KEY (`Usuário_cpf`)
     REFERENCES `Biblioteca`.`Usuário` (`cpf`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Conta_Empréstimo1`
-    FOREIGN KEY (`Empréstimo_idEmpréstimo`)
-    REFERENCES `Biblioteca`.`Empréstimo` (`idEmpréstimo`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -77,11 +57,15 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `Biblioteca`.`Conta_reserva_Acervo`
+-- Table `Biblioteca`.`Conta_fazEmpréstimo_Acervo`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `Biblioteca`.`Conta_reserva_Acervo` (
+CREATE TABLE IF NOT EXISTS `Biblioteca`.`Conta_fazEmpréstimo_Acervo` (
   `Acervo_idAcervo` INT NOT NULL,
   `Conta_idConta` INT NOT NULL,
+  `dataEmpréstimo` DATE NOT NULL,
+  `dataDevolução` DATE NOT NULL,
+  `itens` VARCHAR(100) NOT NULL,
+  `qtdRenovados` INT NOT NULL,
   PRIMARY KEY (`Acervo_idAcervo`, `Conta_idConta`),
   INDEX `fk_Acervo_has_Conta_Conta1_idx` (`Conta_idConta` ASC) VISIBLE,
   INDEX `fk_Acervo_has_Conta_Acervo1_idx` (`Acervo_idAcervo` ASC) VISIBLE,
