@@ -5,8 +5,8 @@ public class Revista extends Acervo{
     private String editora;
     private int ano;
 
-    public Revista(int numRegistro, String titulo, String CDU, String editora, int ano) {
-        super(numRegistro, titulo, CDU);
+    public Revista(String titulo, String CDU, String editora, int ano) {
+        super(titulo, CDU);
         this.editora = editora;
         this.ano = ano;
     }

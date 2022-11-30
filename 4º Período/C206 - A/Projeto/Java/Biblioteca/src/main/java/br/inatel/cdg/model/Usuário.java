@@ -12,4 +12,20 @@ public class Usuário {
         this.idade = idade;
         this.celular = celular;
     }
+
+    public String getNomeCompleto() {
+        return nomeCompleto;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public int getIdade() {
+        return idade;
+    }
+
+    public int getCelular() {
+        return celular;
+    }
 }

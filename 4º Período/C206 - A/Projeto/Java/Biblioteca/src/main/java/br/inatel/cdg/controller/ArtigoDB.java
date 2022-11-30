@@ -37,7 +37,7 @@ public class ArtigoDB extends Database{
             statement = connection.createStatement();
             result = statement.executeQuery(sql);
             while (result.next()) {
-                Artigo artigo = new Artigo(result.getInt("numRegistro"), result.getString("titulo"), result.getString("CDU"), result.getString("autor"));
+                Artigo artigo = new Artigo(result.getString("titulo"), result.getString("CDU"), result.getString("autor"));
                 artigo.setIdArtigo(result.getInt("idArtigo"));
                 System.out.println("Id = " + result.getInt("idArtigo"));
                 System.out.println("Autor = " + result.getString("autor"));

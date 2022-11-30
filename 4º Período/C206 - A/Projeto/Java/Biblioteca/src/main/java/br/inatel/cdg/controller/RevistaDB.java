@@ -30,36 +30,6 @@ public class RevistaDB extends Database {
         return check;
     }
 
-    public ArrayList<Revista> selectRevista() {
-        connect();
-        ArrayList<Revista> revistas = new ArrayList<>();
-        String sql = "SELECT * FROM Revista;";
-        try {
-            statement = connection.createStatement();
-            result = statement.executeQuery(sql);
-            while (result.next()) {
-                Revista revista = new Revista(result.getInt("numRegistro"), result.getString("titulo"), result.getString("CDU"), result.getString("editora"), result.getInt("ano"));
-                revista.setIdRevista(result.getInt("idRevista"));
-                System.out.println("Id = " + result.getInt("idRevista"));
-                System.out.println("Editora = " + result.getString("editora"));
-                System.out.println("Ano = " + result.getString("ano"));
-                System.out.println("--------------------");
-                revistas.add(revista);
-            }
-        } catch (SQLException error) {
-            System.out.println("Operation Error: " + error.getMessage());
-        } finally {
-            try {
-                connection.close();
-                statement.close();
-                result.close();
-            } catch (SQLException error) {
-                System.out.println("Connection Closure Error: " + error.getMessage());
-            }
-        }
-        return revistas;
-    }
-
     public boolean updateEditoraRevista(int idRevista, String editora) {
         connect();
         String sql = "UPDATE Revista SET editora = ? WHERE idRevista = ?;";
