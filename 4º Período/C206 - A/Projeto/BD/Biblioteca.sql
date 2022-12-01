@@ -49,7 +49,6 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Biblioteca`.`Acervo` (
   `idAcervo` INT NOT NULL AUTO_INCREMENT,
-  `numRegistro` INT NOT NULL,
   `cdu` VARCHAR(45) NOT NULL,
   `título` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`idAcervo`))
@@ -90,16 +89,9 @@ CREATE TABLE IF NOT EXISTS `Biblioteca`.`Livro` (
   `autor` VARCHAR(100) NOT NULL,
   `editora` VARCHAR(100) NOT NULL,
   `edição` VARCHAR(100) NOT NULL,
-  `Conta_idConta` INT NOT NULL,
   `Acervo_idAcervo` INT NOT NULL,
   PRIMARY KEY (`idLivro`),
-  INDEX `fk_Livro_Conta1_idx` (`Conta_idConta` ASC) VISIBLE,
   INDEX `fk_Livro_Acervo1_idx` (`Acervo_idAcervo` ASC) VISIBLE,
-  CONSTRAINT `fk_Livro_Conta1`
-    FOREIGN KEY (`Conta_idConta`)
-    REFERENCES `Biblioteca`.`Conta` (`idConta`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
   CONSTRAINT `fk_Livro_Acervo1`
     FOREIGN KEY (`Acervo_idAcervo`)
     REFERENCES `Biblioteca`.`Acervo` (`idAcervo`)
