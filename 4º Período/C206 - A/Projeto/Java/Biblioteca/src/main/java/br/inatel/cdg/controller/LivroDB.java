@@ -1,13 +1,14 @@
 package br.inatel.cdg.controller;
 
+import br.inatel.cdg.model.Empréstimo;
 import br.inatel.cdg.model.Livro;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class LivroDB extends Database{
-    private boolean check = false;
-
-    public boolean insertLivro(Livro livro) {
+    public static boolean insertLivro(Livro livro) {
+        boolean check = false;
         connect();
         String sql = "INSERT INTO Livro (autor, editora, edição) VALUES (?, ?, ?);";
         try {
@@ -30,7 +31,33 @@ public class LivroDB extends Database{
         return check;
     }
 
-    public String[][] selectLivro(String título) {
+    public static ArrayList<Livro> readAllLivro() {
+        connect();
+        ArrayList<Livro> livros = new ArrayList<>();
+        String sql = "SELECT l.*, a.* FROM Livro AS l INNER JOIN Acervo AS a WHERE l.idLivro = a.Acervo_idAcervo;";
+        try {
+            statement = connection.createStatement();
+            result = statement.executeQuery(sql);
+            while (result.next()) {
+                Livro livro = new Livro(result.getString("título"), result.getString("cdu"),result.getString("autor"), result.getString("editora"), result.getString("edição"));
+                livros.add(livro);
+            }
+        } catch (SQLException error) {
+            System.out.println("Operation Error: " + error.getMessage());
+        } finally {
+            try {
+                connection.close();
+                statement.close();
+                result.close();
+            } catch (SQLException error) {
+                System.out.println("Connection Closure Error: " + error.getMessage());
+            }
+        }
+        return livros;
+    }
+
+
+    public static String[][] selectLivro(String título) {
         connect();
         String sql = "SELECT a.título, l.autor FROM Livro l, Acervo a WHERE a.título LIKE %?% AND a.idAcervo = l.Acervo_idAcervo;";
         String[][] data = new String[100][2];
@@ -59,7 +86,8 @@ public class LivroDB extends Database{
         return data;
     }
 
-    public boolean updateLivro(int idLivro, String autor, String editora, String edição) {
+    public static boolean updateLivro(int idLivro, String autor, String editora, String edição) {
+        boolean check = false;
         connect();
         String sql = "UPDATE Livro SET autor = ?, editora = ?, edição = ? WHERE idLivro = ?;";
         try {
@@ -83,7 +111,8 @@ public class LivroDB extends Database{
         return check;
     }
 
-    public boolean deleteLivro(int idLivro) {
+    public static boolean deleteLivro(int idLivro) {
+        boolean check = false;
         connect();
         String sql = "DELETE FROM Livro WHERE idLivro = ?;";
         try {

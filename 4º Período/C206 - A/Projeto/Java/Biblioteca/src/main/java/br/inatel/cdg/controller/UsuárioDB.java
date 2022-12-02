@@ -6,9 +6,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class UsuárioDB extends Database{
-    private boolean check = false;
-
-    public boolean insertUsuário(Usuário user) {
+    public static boolean insertUsuário(Usuário user) {
+        boolean check = false;
         connect();
         String sql = "INSERT INTO Usuário (cpf, nomeCompleto, idade, celular) VALUES (?, ?, ?, ?);";
         try {
@@ -16,7 +15,7 @@ public class UsuárioDB extends Database{
             pst.setString(1, user.getCpf());
             pst.setString(2, user.getNomeCompleto());
             pst.setInt(3, user.getIdade());
-            pst.setInt(4, user.getCelular());
+            pst.setString(4, user.getCelular());
             pst.execute();
             check = true;
         } catch (SQLException error) {
@@ -32,7 +31,34 @@ public class UsuárioDB extends Database{
         return check;
     }
 
-    public boolean updateUsuário(String cpf, String nomeCompleto, int idade, int celular) {
+    public static String selectCPF(String nomeCompleto) {
+        connect();
+        String sql = "SELECT cpf FROM Usuário WHERE nomeCompleto = ?;";
+        String nome = "";
+        try {
+            statement = connection.createStatement();
+            result = statement.executeQuery(sql);
+            while (result.next()) {
+                System.out.println(result.getString("nomeCompleto"));
+                System.out.println("--------------------");
+                nome = result.getString("nomeCompleto");
+            }
+        } catch (SQLException error) {
+            System.out.println("Operation Error: " + error.getMessage());
+        } finally {
+            try {
+                connection.close();
+                statement.close();
+                result.close();
+            } catch (SQLException error) {
+                System.out.println("Connection Closure Error: " + error.getMessage());
+            }
+        }
+        return nome;
+    }
+
+    public static boolean updateUsuário(String cpf, String nomeCompleto, int idade, int celular) {
+        boolean check = false;
         connect();
         String sql = "UPDATE Usuário SET cpf = ?, nomeCompleto = ?, idade = ?, celular = ? WHERE cpf = ?;";
         try {
@@ -57,7 +83,8 @@ public class UsuárioDB extends Database{
         return check;
     }
 
-    public boolean deleteUsuário(String cpf) {
+    public static boolean deleteUsuário(String cpf) {
+        boolean check = false;
         connect();
         String sql = "DELETE FROM Usuário WHERE cpf = ?;";
         try {

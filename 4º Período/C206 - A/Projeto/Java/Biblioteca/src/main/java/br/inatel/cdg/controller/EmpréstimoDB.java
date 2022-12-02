@@ -6,17 +6,16 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class EmpréstimoDB extends Database{
-    private boolean check = false;
-
     public boolean insertEmpréstimo(Empréstimo empréstimo) {
+        boolean check = false;
         connect();
-        String sql = "INSERT INTO Conta_fazEmpréstimo_Acervo (dataEmpréstimo, dataDevolução, itens, qtdRenovados) VALUES (?, ?, ?, ?);";
+        String sql = "INSERT INTO Conta_fazEmpréstimo_Acervo (dataEmpréstimo, dataDevolução, Conta_user, Acervo_idAcervo) VALUES (?, ?, ?, ?);";
         try {
             pst = connection.prepareStatement(sql);
             pst.setString(1, empréstimo.getDataEmprestimo());
             pst.setString(2, empréstimo.getDataDevolucao());
-            pst.setString(3, empréstimo.getItens());
-            pst.setInt(4, empréstimo.getQtdRenovado());
+            pst.setString(3, empréstimo.getUserConta());
+            pst.setInt(4, empréstimo.getidAcervo());
             pst.execute();
             check = true;
         } catch (SQLException error) {
@@ -40,14 +39,7 @@ public class EmpréstimoDB extends Database{
             statement = connection.createStatement();
             result = statement.executeQuery(sql);
             while (result.next()) {
-                Empréstimo empréstimo = new Empréstimo(result.getString("dataEmpréstimo"), result.getString("dataDevolução"), result.getString("itens"), result.getInt("qtdRenovados"));
-                System.out.println("Id conta= " + result.getInt("Conta_idConta"));
-                System.out.println("Id acervo = " + result.getInt("Acervo_idAcervo"));
-                System.out.println("Data empréstimo = " + result.getString("dataEmpréstimo"));
-                System.out.println("Data devolução = " + result.getString("dataDevolução"));
-                System.out.println("Itens = " + result.getString("itens"));
-                System.out.println("Qtd renovados = " + result.getInt("qtdRenovados"));
-                System.out.println("--------------------");
+                Empréstimo empréstimo = new Empréstimo(result.getString("Conta_user"), result.getInt("Acervo_idAcervo"), result.getString("dataEmpréstimo"), result.getString("dataDevolução"));
                 empréstimos.add(empréstimo);
             }
         } catch (SQLException error) {
@@ -65,6 +57,7 @@ public class EmpréstimoDB extends Database{
     }
 
     public boolean updateDataEmpréstimo(int Conta_idConta, int Acervo_idAcervo,String dataEmpréstimo) {
+        boolean check = false;
         connect();
         String sql = "UPDATE Conta_fazEmpréstimo_Acervo SET dataEmpréstimo = ? WHERE Conta_idConta = ? AND Acervo_idAcervo = ?;";
         try {
@@ -88,6 +81,7 @@ public class EmpréstimoDB extends Database{
     }
 
     public boolean updateDataDevolução(int Conta_idConta, int Acervo_idAcervo,String dataDevolução) {
+        boolean check = false;
         connect();
         String sql = "UPDATE Conta_fazEmpréstimo_Acervo SET dataDevolução = ? WHERE Conta_idConta = ? AND Acervo_idAcervo = ?;";
         try {
@@ -111,6 +105,7 @@ public class EmpréstimoDB extends Database{
     }
 
     public boolean updateItens(int Conta_idConta, int Acervo_idAcervo,String itens) {
+        boolean check = false;
         connect();
         String sql = "UPDATE Conta_fazEmpréstimo_Acervo SET itens = ? WHERE Conta_idConta = ? AND Acervo_idAcervo = ?;";
         try {
@@ -134,6 +129,7 @@ public class EmpréstimoDB extends Database{
     }
 
     public boolean updateQtdRenovados(int Conta_idConta, int Acervo_idAcervo,int qtdRenovados) {
+        boolean check = false;
         connect();
         String sql = "UPDATE Conta_fazEmpréstimo_Acervo SET qtdRenovados = ? WHERE Conta_idConta = ? AND Acervo_idAcervo = ?;";
         try {
@@ -157,6 +153,7 @@ public class EmpréstimoDB extends Database{
     }
 
     public boolean deleteEmpréstimo(int Conta_idConta, int Acervo_idAcervo) {
+        boolean check = false;
         connect();
         String sql = "DELETE FROM Conta_fazEmpréstimo_Acervo WHERE Conta_idConta = ? AND Acervo_idAcervo = ?;";
         try {

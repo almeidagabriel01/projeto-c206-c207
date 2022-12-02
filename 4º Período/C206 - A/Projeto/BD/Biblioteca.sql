@@ -21,7 +21,7 @@ CREATE TABLE IF NOT EXISTS `Biblioteca`.`Usuário` (
   `cpf` VARCHAR(11) NOT NULL,
   `nomeCompleto` VARCHAR(100) NOT NULL,
   `idade` INT NOT NULL,
-  `celular` INT NOT NULL,
+  `celular` VARCHAR(15) NOT NULL,
   PRIMARY KEY (`cpf`))
 ENGINE = InnoDB;
 
@@ -30,11 +30,10 @@ ENGINE = InnoDB;
 -- Table `Biblioteca`.`Conta`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Biblioteca`.`Conta` (
-  `idConta` INT NOT NULL AUTO_INCREMENT,
   `user` VARCHAR(30) NOT NULL,
   `senha` VARCHAR(40) NOT NULL,
   `Usuário_cpf` VARCHAR(11) NOT NULL,
-  PRIMARY KEY (`idConta`),
+  PRIMARY KEY (`user`),
   INDEX `fk_Conta_Usuário_idx` (`Usuário_cpf` ASC) VISIBLE,
   CONSTRAINT `fk_Conta_Usuário`
     FOREIGN KEY (`Usuário_cpf`)
@@ -52,32 +51,6 @@ CREATE TABLE IF NOT EXISTS `Biblioteca`.`Acervo` (
   `cdu` VARCHAR(45) NOT NULL,
   `título` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`idAcervo`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `Biblioteca`.`Conta_fazEmpréstimo_Acervo`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `Biblioteca`.`Conta_fazEmpréstimo_Acervo` (
-  `Acervo_idAcervo` INT NOT NULL,
-  `Conta_idConta` INT NOT NULL,
-  `dataEmpréstimo` VARCHAR(15) NOT NULL,
-  `dataDevolução` VARCHAR(15) NOT NULL,
-  `itens` VARCHAR(100) NOT NULL,
-  `qtdRenovados` INT NOT NULL,
-  PRIMARY KEY (`Acervo_idAcervo`, `Conta_idConta`),
-  INDEX `fk_Acervo_has_Conta_Conta1_idx` (`Conta_idConta` ASC) VISIBLE,
-  INDEX `fk_Acervo_has_Conta_Acervo1_idx` (`Acervo_idAcervo` ASC) VISIBLE,
-  CONSTRAINT `fk_Acervo_has_Conta_Acervo1`
-    FOREIGN KEY (`Acervo_idAcervo`)
-    REFERENCES `Biblioteca`.`Acervo` (`idAcervo`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Acervo_has_Conta_Conta1`
-    FOREIGN KEY (`Conta_idConta`)
-    REFERENCES `Biblioteca`.`Conta` (`idConta`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
@@ -128,6 +101,30 @@ CREATE TABLE IF NOT EXISTS `Biblioteca`.`Artigo` (
   PRIMARY KEY (`idArtigo`),
   INDEX `fk_Artigo_Acervo1_idx` (`Acervo_idAcervo` ASC) VISIBLE,
   CONSTRAINT `fk_Artigo_Acervo1`
+    FOREIGN KEY (`Acervo_idAcervo`)
+    REFERENCES `Biblioteca`.`Acervo` (`idAcervo`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `Biblioteca`.`Conta_fazEmpréstimo_Acervo`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `Biblioteca`.`Conta_fazEmpréstimo_Acervo` (
+  `Conta_user` VARCHAR(30) NOT NULL,
+  `Acervo_idAcervo` INT NOT NULL,
+  `dataEmpréstimo` VARCHAR(20) NOT NULL,
+  `dataDevolução` VARCHAR(20) NOT NULL,
+  PRIMARY KEY (`Conta_user`, `Acervo_idAcervo`),
+  INDEX `fk_Conta_has_Acervo_Acervo1_idx` (`Acervo_idAcervo` ASC) VISIBLE,
+  INDEX `fk_Conta_has_Acervo_Conta1_idx` (`Conta_user` ASC) VISIBLE,
+  CONSTRAINT `fk_Conta_has_Acervo_Conta1`
+    FOREIGN KEY (`Conta_user`)
+    REFERENCES `Biblioteca`.`Conta` (`user`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Conta_has_Acervo_Acervo1`
     FOREIGN KEY (`Acervo_idAcervo`)
     REFERENCES `Biblioteca`.`Acervo` (`idAcervo`)
     ON DELETE NO ACTION

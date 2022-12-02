@@ -1,5 +1,7 @@
 package br.inatel.cdg.model;
 
+import br.inatel.cdg.controller.AcervoDB;
+
 public class Revista extends Acervo{
     private int idRevista;
     private String editora;
@@ -9,6 +11,7 @@ public class Revista extends Acervo{
         super(titulo, CDU);
         this.editora = editora;
         this.ano = ano;
+        AcervoDB.insertAcervo(CDU, titulo);
     }
 
     public void setIdRevista(int Id) {
