@@ -32,7 +32,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `Biblioteca`.`Conta` (
   `user` VARCHAR(30) NOT NULL,
   `senha` VARCHAR(40) NOT NULL,
-  `Usuário_cpf` VARCHAR(11) NOT NULL,
+  `Usuário_cpf` VARCHAR(11),
   PRIMARY KEY (`user`),
   INDEX `fk_Conta_Usuário_idx` (`Usuário_cpf` ASC) VISIBLE,
   CONSTRAINT `fk_Conta_Usuário`
@@ -62,7 +62,7 @@ CREATE TABLE IF NOT EXISTS `Biblioteca`.`Livro` (
   `autor` VARCHAR(100) NOT NULL,
   `editora` VARCHAR(100) NOT NULL,
   `edição` VARCHAR(100) NOT NULL,
-  `Acervo_idAcervo` INT NOT NULL,
+  `Acervo_idAcervo` INT,
   PRIMARY KEY (`idLivro`),
   INDEX `fk_Livro_Acervo1_idx` (`Acervo_idAcervo` ASC) VISIBLE,
   CONSTRAINT `fk_Livro_Acervo1`
@@ -80,7 +80,7 @@ CREATE TABLE IF NOT EXISTS `Biblioteca`.`Revista` (
   `idRevista` INT NOT NULL AUTO_INCREMENT,
   `editora` VARCHAR(100) NOT NULL,
   `ano` INT NOT NULL,
-  `Acervo_idAcervo` INT NOT NULL,
+  `Acervo_idAcervo` INT,
   PRIMARY KEY (`idRevista`),
   INDEX `fk_Revista_Acervo1_idx` (`Acervo_idAcervo` ASC) VISIBLE,
   CONSTRAINT `fk_Revista_Acervo1`
@@ -97,7 +97,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `Biblioteca`.`Artigo` (
   `idArtigo` INT NOT NULL AUTO_INCREMENT,
   `autor` VARCHAR(100) NOT NULL,
-  `Acervo_idAcervo` INT NOT NULL,
+  `Acervo_idAcervo` INT,
   PRIMARY KEY (`idArtigo`),
   INDEX `fk_Artigo_Acervo1_idx` (`Acervo_idAcervo` ASC) VISIBLE,
   CONSTRAINT `fk_Artigo_Acervo1`
@@ -112,8 +112,8 @@ ENGINE = InnoDB;
 -- Table `Biblioteca`.`Conta_fazEmpréstimo_Acervo`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Biblioteca`.`Conta_fazEmpréstimo_Acervo` (
-  `Conta_user` VARCHAR(30) NOT NULL,
-  `Acervo_idAcervo` INT NOT NULL,
+  `Conta_user` VARCHAR(30),
+  `Acervo_idAcervo` INT,
   `dataEmpréstimo` VARCHAR(20) NOT NULL,
   `dataDevolução` VARCHAR(20) NOT NULL,
   PRIMARY KEY (`Conta_user`, `Acervo_idAcervo`),

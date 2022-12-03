@@ -6,16 +6,15 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class EmpréstimoDB extends Database{
-    public boolean insertEmpréstimo(Empréstimo empréstimo) {
+    public static boolean insertEmpréstimo(Empréstimo empréstimo, String user) {
         boolean check = false;
         connect();
-        String sql = "INSERT INTO Conta_fazEmpréstimo_Acervo (dataEmpréstimo, dataDevolução, Conta_user, Acervo_idAcervo) VALUES (?, ?, ?, ?);";
+        String sql = "INSERT INTO Conta_fazEmpréstimo_Acervo (dataEmpréstimo, dataDevolução, Conta_user) VALUES (?, ?, ?);";
         try {
             pst = connection.prepareStatement(sql);
             pst.setString(1, empréstimo.getDataEmprestimo());
             pst.setString(2, empréstimo.getDataDevolucao());
-            pst.setString(3, empréstimo.getUserConta());
-            pst.setInt(4, empréstimo.getidAcervo());
+            pst.setString(3, user);
             pst.execute();
             check = true;
         } catch (SQLException error) {
@@ -31,7 +30,7 @@ public class EmpréstimoDB extends Database{
         return check;
     }
 
-    public ArrayList<Empréstimo> selectEmpréstimo() {
+    public static ArrayList<Empréstimo> selectEmpréstimo() {
         connect();
         ArrayList<Empréstimo> empréstimos = new ArrayList<>();
         String sql = "SELECT * FROM Conta_fazEmpréstimo_Acervo;";
@@ -39,7 +38,7 @@ public class EmpréstimoDB extends Database{
             statement = connection.createStatement();
             result = statement.executeQuery(sql);
             while (result.next()) {
-                Empréstimo empréstimo = new Empréstimo(result.getString("Conta_user"), result.getInt("Acervo_idAcervo"), result.getString("dataEmpréstimo"), result.getString("dataDevolução"));
+                Empréstimo empréstimo = new Empréstimo(result.getString("dataEmpréstimo"), result.getString("dataDevolução"));
                 empréstimos.add(empréstimo);
             }
         } catch (SQLException error) {
@@ -56,7 +55,7 @@ public class EmpréstimoDB extends Database{
         return empréstimos;
     }
 
-    public boolean updateDataEmpréstimo(int Conta_idConta, int Acervo_idAcervo,String dataEmpréstimo) {
+    public static boolean updateDataEmpréstimo(int Conta_idConta, int Acervo_idAcervo,String dataEmpréstimo) {
         boolean check = false;
         connect();
         String sql = "UPDATE Conta_fazEmpréstimo_Acervo SET dataEmpréstimo = ? WHERE Conta_idConta = ? AND Acervo_idAcervo = ?;";
@@ -80,7 +79,7 @@ public class EmpréstimoDB extends Database{
         return check;
     }
 
-    public boolean updateDataDevolução(int Conta_idConta, int Acervo_idAcervo,String dataDevolução) {
+    public static boolean updateDataDevolução(int Conta_idConta, int Acervo_idAcervo,String dataDevolução) {
         boolean check = false;
         connect();
         String sql = "UPDATE Conta_fazEmpréstimo_Acervo SET dataDevolução = ? WHERE Conta_idConta = ? AND Acervo_idAcervo = ?;";
@@ -104,7 +103,7 @@ public class EmpréstimoDB extends Database{
         return check;
     }
 
-    public boolean updateItens(int Conta_idConta, int Acervo_idAcervo,String itens) {
+    public static boolean updateItens(int Conta_idConta, int Acervo_idAcervo,String itens) {
         boolean check = false;
         connect();
         String sql = "UPDATE Conta_fazEmpréstimo_Acervo SET itens = ? WHERE Conta_idConta = ? AND Acervo_idAcervo = ?;";
@@ -128,7 +127,7 @@ public class EmpréstimoDB extends Database{
         return check;
     }
 
-    public boolean updateQtdRenovados(int Conta_idConta, int Acervo_idAcervo,int qtdRenovados) {
+    public static boolean updateQtdRenovados(int Conta_idConta, int Acervo_idAcervo,int qtdRenovados) {
         boolean check = false;
         connect();
         String sql = "UPDATE Conta_fazEmpréstimo_Acervo SET qtdRenovados = ? WHERE Conta_idConta = ? AND Acervo_idAcervo = ?;";
@@ -152,7 +151,7 @@ public class EmpréstimoDB extends Database{
         return check;
     }
 
-    public boolean deleteEmpréstimo(int Conta_idConta, int Acervo_idAcervo) {
+    public static boolean deleteEmpréstimo(int Conta_idConta, int Acervo_idAcervo) {
         boolean check = false;
         connect();
         String sql = "DELETE FROM Conta_fazEmpréstimo_Acervo WHERE Conta_idConta = ? AND Acervo_idAcervo = ?;";

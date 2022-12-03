@@ -1,10 +1,8 @@
 package br.inatel.cdg.model;
 
 import br.inatel.cdg.controller.AcervoDB;
-import br.inatel.cdg.controller.LivroDB;
 
 public class Livro extends Acervo{
-    private int idLivro;
     private String autor;
     private String editora;
     private String edição;
@@ -15,10 +13,6 @@ public class Livro extends Acervo{
         this.editora = editora;
         this.edição = edição;
         AcervoDB.insertAcervo(CDU, titulo);
-    }
-
-    public int getId() {
-        return idLivro;
     }
 
     public String getAutor() {

@@ -33,7 +33,7 @@ public class RevistaDB extends Database {
     public static ArrayList<Revista> readAllRevista() {
         ArrayList<Revista> revistas = new ArrayList<>();
         connect();
-        String sql = "SELECT r.*, a.* FROM Revista AS r INNER JOIN Acervo AS a WHERE r.idRevista = a.Acervo_idAcervo;";
+        String sql = "SELECT r.*, a.* FROM Revista AS r INNER JOIN Acervo AS a WHERE r.idRevista = a.idAcervo;";
         try {
             statement = connection.createStatement();
             result = statement.executeQuery(sql);
@@ -104,7 +104,7 @@ public class RevistaDB extends Database {
     public static boolean updateFkRevista(int idRevista, int idAcervo) {
         boolean check = false;
         connect();
-        String sql = " UPDATE Aluno SET Acervo_idAcervo = ? WHERE idRevista = ?;";
+        String sql = " UPDATE Revista SET Acervo_idAcervo = ? WHERE idRevista = ?;";
         try {
             pst = connection.prepareStatement(sql);
             pst.setInt(1, idAcervo);

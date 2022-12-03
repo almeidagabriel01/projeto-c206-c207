@@ -56,7 +56,7 @@ public class AcervoDB extends Database{
     public static boolean updateDataEmpréstimo(int Conta_idConta, int Acervo_idAcervo,String dataEmpréstimo) {
         boolean check = false;
         connect();
-        String sql = "UPDATE Conta_fazEmpréstimo_Acervo SET dataEmpréstimo = ? WHERE Conta_idConta = ? AND Acervo_idAcervo = ?;";
+        String sql = "UPDATE Conta_fazEmpréstimo_Acervo SET dataEmpréstimo = ? WHERE Conta_idConta = ? AND idAcervo = ?;";
         try {
             pst = connection.prepareStatement(sql);
             pst.setString(1, dataEmpréstimo);
@@ -80,7 +80,7 @@ public class AcervoDB extends Database{
     public static boolean updateDataDevolução(int Conta_idConta, int Acervo_idAcervo,String dataDevolução) {
         boolean check = false;
         connect();
-        String sql = "UPDATE Conta_fazEmpréstimo_Acervo SET dataDevolução = ? WHERE Conta_idConta = ? AND Acervo_idAcervo = ?;";
+        String sql = "UPDATE Conta_fazEmpréstimo_Acervo SET dataDevolução = ? WHERE Conta_idConta = ? AND idAcervo = ?;";
         try {
             pst = connection.prepareStatement(sql);
             pst.setString(1, dataDevolução);
@@ -104,7 +104,7 @@ public class AcervoDB extends Database{
     public static boolean updateItens(int Conta_idConta, int Acervo_idAcervo,String itens) {
         boolean check = false;
         connect();
-        String sql = "UPDATE Conta_fazEmpréstimo_Acervo SET itens = ? WHERE Conta_idConta = ? AND Acervo_idAcervo = ?;";
+        String sql = "UPDATE Conta_fazEmpréstimo_Acervo SET itens = ? WHERE Conta_idConta = ? AND idAcervo = ?;";
         try {
             pst = connection.prepareStatement(sql);
             pst.setString(1, itens);
@@ -128,7 +128,7 @@ public class AcervoDB extends Database{
     public static boolean updateQtdRenovados(int Conta_idConta, int Acervo_idAcervo,int qtdRenovados) {
         boolean check = false;
         connect();
-        String sql = "UPDATE Conta_fazEmpréstimo_Acervo SET qtdRenovados = ? WHERE Conta_idConta = ? AND Acervo_idAcervo = ?;";
+        String sql = "UPDATE Conta_fazEmpréstimo_Acervo SET qtdRenovados = ? WHERE Conta_idConta = ? AND idAcervo = ?;";
         try {
             pst = connection.prepareStatement(sql);
             pst.setInt(1, qtdRenovados);
@@ -152,7 +152,7 @@ public class AcervoDB extends Database{
     public static boolean deleteEmpréstimo(int Conta_idConta, int Acervo_idAcervo) {
         boolean check = false;
         connect();
-        String sql = "DELETE FROM Conta_fazEmpréstimo_Acervo WHERE Conta_idConta = ? AND Acervo_idAcervo = ?;";
+        String sql = "DELETE FROM Conta_fazEmpréstimo_Acervo WHERE Conta_idConta = ? AND idAcervo = ?;";
         try {
             pst = connection.prepareStatement(sql);
             pst.setInt(1, Conta_idConta);

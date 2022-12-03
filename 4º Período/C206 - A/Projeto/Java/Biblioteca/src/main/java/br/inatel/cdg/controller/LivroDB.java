@@ -31,10 +31,34 @@ public class LivroDB extends Database{
         return check;
     }
 
+    public static boolean updateFkLivro(int id_livro, int id_acervo) {
+        boolean check = false;
+        connect();
+        String sql = " UPDATE Livro SET Acervo_idAcervo = ? WHERE idLivro = ?;";
+        try {
+            pst = connection.prepareStatement(sql);
+            pst.setInt(1, id_acervo);
+            pst.setInt(2, id_livro);
+            pst.execute();
+            check = true;
+        } catch (SQLException error) {
+            System.out.println("Operation Error: " + error.getMessage());
+            check = false;
+        } finally {
+            try {
+                connection.close();
+                pst.close();
+            } catch (SQLException error) {
+                System.out.println("Connection Closure Error: " + error.getMessage());
+            }
+        }
+        return check;
+    }
+
     public static ArrayList<Livro> readAllLivro() {
         connect();
         ArrayList<Livro> livros = new ArrayList<>();
-        String sql = "SELECT l.*, a.* FROM Livro AS l INNER JOIN Acervo AS a WHERE l.idLivro = a.Acervo_idAcervo;";
+        String sql = "SELECT l.*, a.* FROM Livro AS l INNER JOIN Acervo AS a WHERE l.idLivro = a.idAcervo;";
         try {
             statement = connection.createStatement();
             result = statement.executeQuery(sql);
@@ -59,7 +83,7 @@ public class LivroDB extends Database{
 
     public static String[][] selectLivro(String título) {
         connect();
-        String sql = "SELECT a.título, l.autor FROM Livro l, Acervo a WHERE a.título LIKE %?% AND a.idAcervo = l.Acervo_idAcervo;";
+        String sql = "SELECT a.título, l.autor FROM Livro l, Acervo a WHERE a.título LIKE %?% AND a.idAcervo = l.idAcervo;";
         String[][] data = new String[100][2];
         try {
             pst = connection.prepareStatement(sql);

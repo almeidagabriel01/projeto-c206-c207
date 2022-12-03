@@ -31,12 +31,12 @@ public class ArtigoDB extends Database{
     public static ArrayList<Artigo> readAllArtigo() {
         connect();
         ArrayList<Artigo> artigos = new ArrayList<>();
-        String sql = "SELECT art.*, ace.* FROM Artigo AS art INNER JOIN Acervo AS ace WHERE art.idArtigo = ace.Acervo_idAcervo;";
+        String sql = "SELECT art.*, ace.* FROM Artigo AS art INNER JOIN Acervo AS ace WHERE art.idArtigo = ace.idAcervo;";
         try {
             statement = connection.createStatement();
             result = statement.executeQuery(sql);
             while (result.next()) {
-                Artigo artigo = new Artigo(result.getString("titulo"), result.getString("CDU"), result.getString("autor"));
+                Artigo artigo = new Artigo(result.getString("título"), result.getString("CDU"), result.getString("autor"));
                 artigos.add(artigo);
             }
         } catch (SQLException error) {
@@ -79,7 +79,7 @@ public class ArtigoDB extends Database{
     public static boolean updateFkArtigo(int idArtigo, int idAcervo) {
         boolean check = false;
         connect();
-        String sql = " UPDATE Aluno SET Acervo_idAcervo = ? WHERE idArtigo = ?;";
+        String sql = " UPDATE Artigo SET Acervo_idAcervo = ? WHERE idArtigo = ?;";
         try {
             pst = connection.prepareStatement(sql);
             pst.setInt(1, idAcervo);

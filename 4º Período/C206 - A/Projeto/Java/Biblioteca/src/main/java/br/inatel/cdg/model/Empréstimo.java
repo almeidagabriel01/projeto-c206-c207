@@ -3,16 +3,12 @@ package br.inatel.cdg.model;
 import br.inatel.cdg.controller.EmpréstimoDB;
 
 public class Empréstimo {
-    private String Conta_user;
-    private int Acervo_idAcervo;
+    public String Conta_user;
+    public int Acervo_idAcervo;
     private String dataEmprestimo;
     private String dataDevolucao;
-    private EmpréstimoDB empréstimo = new EmpréstimoDB();
-    Usuário usuário;
 
-    public Empréstimo(String Conta_user, int Acervo_idAcervo, String dataEmprestimo, String dataDevolucao) {
-        this.Conta_user = Conta_user;
-        this.Acervo_idAcervo = Acervo_idAcervo;
+    public Empréstimo(String dataEmprestimo, String dataDevolucao) {
         this.dataEmprestimo = dataEmprestimo;
         this.dataDevolucao = dataDevolucao;
     }
@@ -25,11 +21,11 @@ public class Empréstimo {
         return dataDevolucao;
     }
 
-    public String getUserConta() {
-        return Conta_user;
+    public void setDataEmprestimo(String dataEmprestimo) {
+        this.dataEmprestimo = dataEmprestimo;
     }
 
-    public int getidAcervo() {
-        return Acervo_idAcervo;
+    public void setDataDevolucao(String dataDevolucao) {
+        this.dataDevolucao = dataDevolucao;
     }
 }
