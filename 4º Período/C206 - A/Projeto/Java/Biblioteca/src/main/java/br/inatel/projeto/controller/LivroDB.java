@@ -1,6 +1,6 @@
-package br.inatel.cdg.controller;
+package br.inatel.projeto.controller;
 
-import br.inatel.cdg.model.Livro;
+import br.inatel.projeto.model.Livro;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -33,7 +33,7 @@ public class LivroDB extends Database{
     public static boolean updateFkLivro(int id_livro, int id_acervo) {
         boolean check = false;
         connect();
-        String sql = " UPDATE Livro SET Acervo_idAcervo = ? WHERE idLivro = ?;";
+        String sql = "UPDATE Livro SET Acervo_idAcervo = ? WHERE idLivro = ?;";
         try {
             pst = connection.prepareStatement(sql);
             pst.setInt(1, id_acervo);

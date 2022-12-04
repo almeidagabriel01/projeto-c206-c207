@@ -1,13 +1,10 @@
-package br.inatel.cdg.controller;
-
-import br.inatel.cdg.model.Acervo;
+package br.inatel.projeto.controller;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
 
 public class AcervoDB extends Database{
 
-    public static boolean insertAcervo(String cdu, String titulo) {
+    public static boolean insertAcervo(String titulo, String cdu) {
         boolean check = false;
         connect();
         String sql = "INSERT INTO Acervo (cdu, titulo) VALUES (?, ?);";

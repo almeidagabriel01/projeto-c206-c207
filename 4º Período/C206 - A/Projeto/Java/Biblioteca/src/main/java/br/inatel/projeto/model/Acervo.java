@@ -1,12 +1,9 @@
-package br.inatel.cdg.model;
-
-import br.inatel.cdg.controller.AcervoDB;
+package br.inatel.projeto.model;
 
 public abstract class Acervo {
-    private int idAcervo;
-    private String titulo;
-    private String CDU;
-    private AcervoDB acervoDB = new AcervoDB();
+    protected int idAcervo;
+    protected String titulo;
+    protected String CDU;
 
     public Acervo(String titulo, String CDU) {
         this.titulo = titulo;

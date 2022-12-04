@@ -1,19 +1,19 @@
-package br.inatel.cdg.controller;
+package br.inatel.projeto.controller;
 
-import br.inatel.cdg.model.Emprestimo;
+import br.inatel.projeto.model.Emprestimo;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class EmprestimoDB extends Database{
-    public static boolean insertEmprestimo(String user, int id, Emprestimo emprestimo) {
+    public static boolean insertEmprestimo(String user, int idAcervo, Emprestimo emprestimo) {
         boolean check = false;
         connect();
         String sql = "INSERT INTO Conta_fazEmprestimo_Acervo (Conta_user, Acervo_idAcervo, dataEmprestimo, dataDevolucao) VALUES (?, ?, ?, ?);";
         try {
             pst = connection.prepareStatement(sql);
             pst.setString(1, user);
-            pst.setInt(2, id);
+            pst.setInt(2, idAcervo);
             pst.setString(3, emprestimo.getDataEmprestimo());
             pst.setString(4, emprestimo.getDataDevolucao());
             pst.execute();

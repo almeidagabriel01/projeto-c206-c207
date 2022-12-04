@@ -1,7 +1,7 @@
-package br.inatel.cdg.view;
+package br.inatel.projeto.view;
 
-import br.inatel.cdg.controller.*;
-import br.inatel.cdg.model.*;
+import br.inatel.projeto.controller.*;
+import br.inatel.projeto.model.*;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -37,10 +37,15 @@ public final class Main {
         Livro livro1 = new Livro("O Senhor dos Anéis", "Literatura estrangeira", "J.R.R. Tolkien", "Rocco", "Volume 1");
         Livro livro2 = new Livro("O Hobbit", "Literatura estrangeira", "J.R.R. Tolkien", "Rocco", "Volume 2");
         Livro livro3 = new Livro("Livro da filosofia", "100", "Douglas Kim", "Globo livros", "Volume 3");
+        AcervoDB.insertAcervo(livro1.getTitulo(), livro1.getCDU());
         LivroDB.insertLivro(livro1);
         LivroDB.updateFkLivro(1, 1);
+
+        AcervoDB.insertAcervo(livro2.getTitulo(), livro2.getCDU());
         LivroDB.insertLivro(livro2);
         LivroDB.updateFkLivro(2, 2);
+
+        AcervoDB.insertAcervo(livro3.getTitulo(), livro3.getCDU());
         LivroDB.insertLivro(livro3);
         LivroDB.updateFkLivro(3, 3);
 
@@ -48,10 +53,15 @@ public final class Main {
         Artigo artigo2 = new Artigo("Relógios atômicos: Medindo o segundo", "Física", "Muriel A. de Souza Lobo");
         Artigo artigo3 = new Artigo("A Ciência no Carnaval", "Ciência", "Sidcley Lyra");
 
+        AcervoDB.insertAcervo(artigo1.getTitulo(), artigo1.getCDU());
         ArtigoDB.insertArtigo(artigo1);
         ArtigoDB.updateFkArtigo(1, 4);
+
+        AcervoDB.insertAcervo(artigo2.getTitulo(), artigo2.getCDU());
         ArtigoDB.insertArtigo(artigo2);
         ArtigoDB.updateFkArtigo(2, 5);
+
+        AcervoDB.insertAcervo(artigo3.getTitulo(), artigo3.getCDU());
         ArtigoDB.insertArtigo(artigo3);
         ArtigoDB.updateFkArtigo(3, 6);
 
@@ -59,10 +69,15 @@ public final class Main {
         Revista revista2 = new Revista("Física Hoje", "Física", "Muriel A. de Souza Lobo", 2018);
         Revista revista3 = new Revista("Ciência no Carnaval", "Ciência", "Sidcley Lyra", 2017);
 
+        AcervoDB.insertAcervo(revista1.getTitulo(), revista1.getCDU());
         RevistaDB.insertRevista(revista1);
         RevistaDB.updateFkRevista(1, 7);
+
+        AcervoDB.insertAcervo(revista2.getTitulo(), revista2.getCDU());
         RevistaDB.insertRevista(revista2);
         RevistaDB.updateFkRevista(2, 8);
+
+        AcervoDB.insertAcervo(revista3.getTitulo(), revista3.getCDU());
         RevistaDB.insertRevista(revista3);
         RevistaDB.updateFkRevista(3, 9);
     }
@@ -200,8 +215,13 @@ public final class Main {
 
                     // insere o empréstimo no banco de dados
                     int idAcervo = AcervoDB.selectId(titulo);
-                    EmprestimoDB.insertEmprestimo(user, idAcervo, emprestimo);
-                    System.out.println("Empréstimo efetuado com sucesso!");
+                    boolean valida = EmprestimoDB.insertEmprestimo(user, idAcervo, emprestimo);
+                    if(valida){
+                        System.out.println("Empréstimo efetuado com sucesso!");
+                    }
+                    else{
+                        System.out.println("Erro ao efetuar o empréstimo!");
+                    }
 
                 } else if (opcao2 == 2) {
                     System.out.println("Empréstimo cancelado!");

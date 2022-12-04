@@ -46,7 +46,7 @@ ENGINE = InnoDB;
 -- Table `Biblioteca`.`Acervo`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Biblioteca`.`Acervo` (
-  `idAcervo` INT NOT NULL AUTO_INCREMENT,
+  `idAcervo` INT AUTO_INCREMENT,
   `cdu` VARCHAR(45) NOT NULL,
   `titulo` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`idAcervo`))
@@ -57,7 +57,7 @@ ENGINE = InnoDB;
 -- Table `Biblioteca`.`Livro`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Biblioteca`.`Livro` (
-  `idLivro` INT NOT NULL AUTO_INCREMENT,
+  `idLivro` INT AUTO_INCREMENT,
   `autor` VARCHAR(100) NOT NULL,
   `editora` VARCHAR(100) NOT NULL,
   `edição` VARCHAR(100) NOT NULL,
@@ -75,7 +75,7 @@ ENGINE = InnoDB;
 -- Table `Biblioteca`.`Revista`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Biblioteca`.`Revista` (
-  `idRevista` INT NOT NULL AUTO_INCREMENT,
+  `idRevista` INT AUTO_INCREMENT,
   `editora` VARCHAR(100) NOT NULL,
   `ano` INT NOT NULL,
   `Acervo_idAcervo` INT,
@@ -92,7 +92,7 @@ ENGINE = InnoDB;
 -- Table `Biblioteca`.`Artigo`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Biblioteca`.`Artigo` (
-  `idArtigo` INT NOT NULL AUTO_INCREMENT,
+  `idArtigo` INT AUTO_INCREMENT,
   `autor` VARCHAR(100) NOT NULL,
   `Acervo_idAcervo` INT,
   PRIMARY KEY (`idArtigo`),

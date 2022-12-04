@@ -1,6 +1,6 @@
-package br.inatel.cdg.model;
+package br.inatel.projeto.model;
 
-import br.inatel.cdg.controller.UsuarioDB;
+import br.inatel.projeto.controller.UsuarioDB;
 
 public class Usuario {
     private String nomeCompleto;

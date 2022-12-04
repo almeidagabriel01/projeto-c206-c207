@@ -1,4 +1,4 @@
-package br.inatel.cdg.model;
+package br.inatel.projeto.model;
 
 public class Emprestimo {
     public String Conta_user;

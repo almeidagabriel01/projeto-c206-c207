@@ -1,18 +1,20 @@
-package br.inatel.cdg.controller;
+package br.inatel.projeto.controller;
 
-import br.inatel.cdg.model.Artigo;
+import br.inatel.projeto.model.Usuario;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
 
-public class ArtigoDB extends Database{
-    public static boolean insertArtigo(Artigo artigo) {
+public class UsuarioDB extends Database{
+    public static boolean insertUsuario(Usuario user) {
         boolean check = false;
         connect();
-        String sql = "INSERT INTO Artigo (autor) VALUES (?);";
+        String sql = "INSERT INTO Usuario (cpf, nomeCompleto, idade, celular) VALUES (?, ?, ?, ?);";
         try {
             pst = connection.prepareStatement(sql);
-            pst.setString(1, artigo.getAutor());
+            pst.setString(1, user.getCpf());
+            pst.setString(2, user.getNomeCompleto());
+            pst.setInt(3, user.getIdade());
+            pst.setString(4, user.getCelular());
             pst.execute();
             check = true;
         } catch (SQLException error) {
@@ -28,16 +30,17 @@ public class ArtigoDB extends Database{
         return check;
     }
 
-    public static ArrayList<Artigo> readAllArtigo() {
+    public static String selectCPF(String nomeCompleto) {
         connect();
-        ArrayList<Artigo> artigos = new ArrayList<>();
-        String sql = "SELECT art.*, ace.* FROM Artigo AS art INNER JOIN Acervo AS ace WHERE art.idArtigo = ace.idAcervo;";
+        String sql = "SELECT cpf FROM Usuario WHERE nomeCompleto ='" + nomeCompleto + "';";
+        String nome = "";
         try {
             statement = connection.createStatement();
             result = statement.executeQuery(sql);
             while (result.next()) {
-                Artigo artigo = new Artigo(result.getString("titulo"), result.getString("CDU"), result.getString("autor"));
-                artigos.add(artigo);
+                System.out.println(result.getString("nomeCompleto"));
+                System.out.println("--------------------");
+                nome = result.getString("nomeCompleto");
             }
         } catch (SQLException error) {
             System.out.println("Operation Error: " + error.getMessage());
@@ -50,17 +53,20 @@ public class ArtigoDB extends Database{
                 System.out.println("Connection Closure Error: " + error.getMessage());
             }
         }
-        return artigos;
+        return nome;
     }
 
-    public static boolean updateAutorArtigo(int idArtigo, String autor) {
+    public static boolean updateUsuario(String cpf, String nomeCompleto, int idade, int celular) {
         boolean check = false;
         connect();
-        String sql = "UPDATE Autor SET autor = ? WHERE idArtigo = ?;";
+        String sql = "UPDATE Usuario SET cpf = ?, nomeCompleto = ?, idade = ?, celular = ? WHERE cpf = ?;";
         try {
             pst = connection.prepareStatement(sql);
-            pst.setString(1, autor);
-            pst.setInt(2, idArtigo);
+            pst.setString(1, cpf);
+            pst.setString(2, nomeCompleto);
+            pst.setInt(3, idade);
+            pst.setInt(4, celular);
+            pst.setString(5, cpf);
             pst.execute();
             check = true;
         } catch (SQLException error) {
@@ -76,37 +82,13 @@ public class ArtigoDB extends Database{
         return check;
     }
 
-    public static boolean updateFkArtigo(int idArtigo, int idAcervo) {
+    public static boolean deleteUsuário(String cpf) {
         boolean check = false;
         connect();
-        String sql = " UPDATE Artigo SET Acervo_idAcervo = ? WHERE idArtigo = ?;";
+        String sql = "DELETE FROM Usuario WHERE cpf = ?;";
         try {
             pst = connection.prepareStatement(sql);
-            pst.setInt(1, idAcervo);
-            pst.setInt(2, idArtigo);
-            pst.execute();
-            check = true;
-        } catch (SQLException error) {
-            System.out.println("Operation Error: " + error.getMessage());
-            check = false;
-        } finally {
-            try {
-                connection.close();
-                pst.close();
-            } catch (SQLException error) {
-                System.out.println("Connection Closure Error: " + error.getMessage());
-            }
-        }
-        return check;
-    }
-
-    public static boolean deleteArtigo(int id) {
-        boolean check = false;
-        connect();
-        String sql = "DELETE FROM Artigo WHERE id = ?;";
-        try {
-            pst = connection.prepareStatement(sql);
-            pst.setInt(1, id);
+            pst.setString(1, cpf);
             pst.execute();
             check = true;
         } catch (SQLException error) {

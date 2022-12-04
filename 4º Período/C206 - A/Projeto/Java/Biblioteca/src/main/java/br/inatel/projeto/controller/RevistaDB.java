@@ -1,19 +1,20 @@
-package br.inatel.cdg.controller;
+package br.inatel.projeto.controller;
+
+import br.inatel.projeto.model.Revista;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
-public class ContaDB extends Database{
-    public static boolean insertConta(String user, String senha) {
+public class RevistaDB extends Database {
+
+    public static boolean insertRevista(Revista revista) {
         boolean check = false;
         connect();
-        String sql = "INSERT INTO Conta (user, senha) VALUES (?, ?);";
+        String sql = "INSERT INTO Revista (editora, ano) VALUES (?, ?);";
         try {
             pst = connection.prepareStatement(sql);
-            pst.setString(1, user);
-            pst.setString(2, senha);
+            pst.setString(1, revista.getEditora());
+            pst.setInt(2, revista.getAno());
             pst.execute();
             check = true;
         } catch (SQLException error) {
@@ -29,15 +30,16 @@ public class ContaDB extends Database{
         return check;
     }
 
-    public static ArrayList<String> selectUser(){
+    public static ArrayList<Revista> readAllRevista() {
+        ArrayList<Revista> revistas = new ArrayList<>();
         connect();
-        ArrayList<String> users = new ArrayList<>();
-        String sql = "SELECT user FROM Conta;";
+        String sql = "SELECT r.*, a.* FROM Revista AS r INNER JOIN Acervo AS a WHERE r.idRevista = a.idAcervo;";
         try {
             statement = connection.createStatement();
             result = statement.executeQuery(sql);
             while (result.next()) {
-                users.add(result.getString("user"));
+                Revista revista = new Revista(result.getString("titulo"), result.getString("cdu"), result.getString("editora"), result.getInt("ano"));
+                revistas.add(revista);
             }
         } catch (SQLException error) {
             System.out.println("Operation Error: " + error.getMessage());
@@ -50,41 +52,17 @@ public class ContaDB extends Database{
                 System.out.println("Connection Closure Error: " + error.getMessage());
             }
         }
-        return users;
+        return revistas;
     }
 
-    public static Map<String, String> validaLogin(String usuario, String senha){
-        Map<String, String> login = new HashMap<>();
-        connect();
-        String sql = "SELECT user, senha FROM Conta WHERE user ='" + usuario + "' AND senha ='" + senha + "';";
-        try {
-            statement = connection.createStatement();
-            result = statement.executeQuery(sql);
-            while (result.next()) {
-                login.put(result.getString("user"), result.getString("senha"));
-            }
-        } catch (SQLException error) {
-            System.out.println("Operation Error: " + error.getMessage());
-        } finally {
-            try {
-                connection.close();
-                statement.close();
-                result.close();
-            } catch (SQLException error) {
-                System.out.println("Connection Closure Error: " + error.getMessage());
-            }
-        }
-        return login;
-    }
-
-    public static boolean updateFkConta(String user, String cpf) {
+    public static boolean updateEditoraRevista(int idRevista, String editora) {
         boolean check = false;
         connect();
-        String sql = "UPDATE Conta SET usuario_cpf = ? WHERE user = ?;";
+        String sql = "UPDATE Revista SET editora = ? WHERE idRevista = ?;";
         try {
             pst = connection.prepareStatement(sql);
-            pst.setString(1, cpf);
-            pst.setString(2, user);
+            pst.setString(1, editora);
+            pst.setInt(2, idRevista);
             pst.execute();
             check = true;
         } catch (SQLException error) {
@@ -100,13 +78,60 @@ public class ContaDB extends Database{
         return check;
     }
 
-    public boolean deleteConta(String user) {
+    public static boolean updateAnoRevista(int idRevista, int ano) {
         boolean check = false;
         connect();
-        String sql = "DELETE FROM Conta WHERE user = ?;";
+        String sql = "UPDATE Revista SET ano = ? WHERE idRevista = ?;";
         try {
             pst = connection.prepareStatement(sql);
-            pst.setString(1, user);
+            pst.setInt(1, ano);
+            pst.setInt(2, idRevista);
+            pst.execute();
+            check = true;
+        } catch (SQLException error) {
+            System.out.println("Operation Error: " + error.getMessage());
+        } finally {
+            try {
+                connection.close();
+                pst.close();
+            } catch (SQLException error) {
+                System.out.println("Connection Closure Error: " + error.getMessage());
+            }
+        }
+        return check;
+    }
+
+    public static boolean updateFkRevista(int idRevista, int idAcervo) {
+        boolean check = false;
+        connect();
+        String sql = " UPDATE Revista SET Acervo_idAcervo = ? WHERE idRevista = ?;";
+        try {
+            pst = connection.prepareStatement(sql);
+            pst.setInt(1, idAcervo);
+            pst.setInt(2, idRevista);
+            pst.execute();
+            check = true;
+        } catch (SQLException error) {
+            System.out.println("Operation Error: " + error.getMessage());
+            check = false;
+        } finally {
+            try {
+                connection.close();
+                pst.close();
+            } catch (SQLException error) {
+                System.out.println("Connection Closure Error: " + error.getMessage());
+            }
+        }
+        return check;
+    }
+
+    public static boolean deleteRevista(int id) {
+        boolean check = false;
+        connect();
+        String sql = "DELETE FROM Revista WHERE id = ?;";
+        try {
+            pst = connection.prepareStatement(sql);
+            pst.setInt(1, id);
             pst.execute();
             check = true;
         } catch (SQLException error) {

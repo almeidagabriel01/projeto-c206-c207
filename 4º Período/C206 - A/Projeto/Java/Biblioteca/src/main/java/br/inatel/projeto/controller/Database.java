@@ -1,4 +1,4 @@
-package br.inatel.cdg.controller;
+package br.inatel.projeto.controller;
 import java.sql.*;
 
 public abstract class Database {

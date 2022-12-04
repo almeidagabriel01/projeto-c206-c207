@@ -1,20 +1,18 @@
-package br.inatel.cdg.controller;
+package br.inatel.projeto.controller;
 
-import br.inatel.cdg.model.Revista;
+import br.inatel.projeto.model.Artigo;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class RevistaDB extends Database {
-
-    public static boolean insertRevista(Revista revista) {
+public class ArtigoDB extends Database{
+    public static boolean insertArtigo(Artigo artigo) {
         boolean check = false;
         connect();
-        String sql = "INSERT INTO Revista (editora, ano) VALUES (?, ?);";
+        String sql = "INSERT INTO Artigo (autor) VALUES (?);";
         try {
             pst = connection.prepareStatement(sql);
-            pst.setString(1, revista.getEditora());
-            pst.setInt(2, revista.getAno());
+            pst.setString(1, artigo.getAutor());
             pst.execute();
             check = true;
         } catch (SQLException error) {
@@ -30,16 +28,16 @@ public class RevistaDB extends Database {
         return check;
     }
 
-    public static ArrayList<Revista> readAllRevista() {
-        ArrayList<Revista> revistas = new ArrayList<>();
+    public static ArrayList<Artigo> readAllArtigo() {
         connect();
-        String sql = "SELECT r.*, a.* FROM Revista AS r INNER JOIN Acervo AS a WHERE r.idRevista = a.idAcervo;";
+        ArrayList<Artigo> artigos = new ArrayList<>();
+        String sql = "SELECT art.*, ace.* FROM Artigo AS art INNER JOIN Acervo AS ace WHERE art.idArtigo = ace.idAcervo;";
         try {
             statement = connection.createStatement();
             result = statement.executeQuery(sql);
             while (result.next()) {
-                Revista revista = new Revista(result.getString("titulo"), result.getString("cdu"), result.getString("editora"), result.getInt("ano"));
-                revistas.add(revista);
+                Artigo artigo = new Artigo(result.getString("titulo"), result.getString("CDU"), result.getString("autor"));
+                artigos.add(artigo);
             }
         } catch (SQLException error) {
             System.out.println("Operation Error: " + error.getMessage());
@@ -52,17 +50,17 @@ public class RevistaDB extends Database {
                 System.out.println("Connection Closure Error: " + error.getMessage());
             }
         }
-        return revistas;
+        return artigos;
     }
 
-    public static boolean updateEditoraRevista(int idRevista, String editora) {
+    public static boolean updateAutorArtigo(int idArtigo, String autor) {
         boolean check = false;
         connect();
-        String sql = "UPDATE Revista SET editora = ? WHERE idRevista = ?;";
+        String sql = "UPDATE Autor SET autor = ? WHERE idArtigo = ?;";
         try {
             pst = connection.prepareStatement(sql);
-            pst.setString(1, editora);
-            pst.setInt(2, idRevista);
+            pst.setString(1, autor);
+            pst.setInt(2, idArtigo);
             pst.execute();
             check = true;
         } catch (SQLException error) {
@@ -78,37 +76,14 @@ public class RevistaDB extends Database {
         return check;
     }
 
-    public static boolean updateAnoRevista(int idRevista, int ano) {
+    public static boolean updateFkArtigo(int idArtigo, int idAcervo) {
         boolean check = false;
         connect();
-        String sql = "UPDATE Revista SET ano = ? WHERE idRevista = ?;";
-        try {
-            pst = connection.prepareStatement(sql);
-            pst.setInt(1, ano);
-            pst.setInt(2, idRevista);
-            pst.execute();
-            check = true;
-        } catch (SQLException error) {
-            System.out.println("Operation Error: " + error.getMessage());
-        } finally {
-            try {
-                connection.close();
-                pst.close();
-            } catch (SQLException error) {
-                System.out.println("Connection Closure Error: " + error.getMessage());
-            }
-        }
-        return check;
-    }
-
-    public static boolean updateFkRevista(int idRevista, int idAcervo) {
-        boolean check = false;
-        connect();
-        String sql = " UPDATE Revista SET Acervo_idAcervo = ? WHERE idRevista = ?;";
+        String sql = " UPDATE Artigo SET Acervo_idAcervo = ? WHERE idArtigo = ?;";
         try {
             pst = connection.prepareStatement(sql);
             pst.setInt(1, idAcervo);
-            pst.setInt(2, idRevista);
+            pst.setInt(2, idArtigo);
             pst.execute();
             check = true;
         } catch (SQLException error) {
@@ -125,10 +100,10 @@ public class RevistaDB extends Database {
         return check;
     }
 
-    public static boolean deleteRevista(int id) {
+    public static boolean deleteArtigo(int id) {
         boolean check = false;
         connect();
-        String sql = "DELETE FROM Revista WHERE id = ?;";
+        String sql = "DELETE FROM Artigo WHERE id = ?;";
         try {
             pst = connection.prepareStatement(sql);
             pst.setInt(1, id);
