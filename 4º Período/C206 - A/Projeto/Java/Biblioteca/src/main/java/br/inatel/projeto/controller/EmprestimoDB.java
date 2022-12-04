@@ -31,32 +31,6 @@ public class EmprestimoDB extends Database{
         }
         return check;
     }
-
-    /*
-    public static boolean updateFkEmprestimo(String contaUser, int idAcervo, String dataEmp) {
-        boolean check = false;
-        connect();
-        String sql = "UPDATE Acervo_fazEmprestimo_Conta SET Conta_user = ?, Acervo_idAcervo = ? WHERE dataEmprestimo = ?;";
-        try {
-            pst = connection.prepareStatement(sql);
-            pst.setString(1, contaUser);
-            pst.setInt(2, idAcervo);
-            pst.setString(3, dataEmp);
-            pst.execute();
-            check = true;
-        } catch (SQLException error) {
-            System.out.println("Operation Error: " + error.getMessage());
-        } finally {
-            try {
-                connection.close();
-                pst.close();
-            } catch (SQLException error) {
-                System.out.println("Connection Closure Error: " + error.getMessage());
-            }
-        }
-        return check;
-    }
-    */
     public static ArrayList<Emprestimo> selectEmprestimo() {
         connect();
         ArrayList<Emprestimo> emprestimos = new ArrayList<>();
