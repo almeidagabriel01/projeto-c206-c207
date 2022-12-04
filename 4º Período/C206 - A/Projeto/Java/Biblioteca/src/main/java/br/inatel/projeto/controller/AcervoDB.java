@@ -27,7 +27,7 @@ public class AcervoDB extends Database{
         return check;
     }
 
-    public static int selectId(String titulo){
+    public static int selectIdAcervo(String titulo){
         int id = 0;
         connect();
         String sql = "SELECT idAcervo FROM Acervo WHERE titulo ='" + titulo + "';";
@@ -51,14 +51,16 @@ public class AcervoDB extends Database{
         return id;
     }
 
-    public static boolean pesquisaLivro(String titulo){
-        boolean check = false;
+    public static String pesquisaLivro(String titulo){
+        String resultado = "";
         connect();
-        String sql = "SELECT titulo FROM Acervo WHERE titulo ='" + titulo + "';";
+        String sql = "SELECT titulo FROM Acervo AS a INNER JOIN livro AS l ON a.titulo ='" + titulo + "' AND a.idAcervo = l.Acervo_idAcervo;";
         try {
             statement = connection.createStatement();
             result = statement.executeQuery(sql);
-            check = true;
+            while (result.next()) {
+                resultado = result.getString("titulo");
+            }
         } catch (SQLException error) {
             System.out.println("Operation Error: " + error.getMessage());
         } finally {
@@ -70,6 +72,54 @@ public class AcervoDB extends Database{
                 System.out.println("Connection Closure Error: " + error.getMessage());
             }
         }
-        return check;
+        return resultado;
+    }
+
+    public static String pesquisaArigo(String titulo){
+        String resultado = "";
+        connect();
+        String sql = "SELECT titulo FROM Acervo AS ac INNER JOIN Arigo AS ar ON ac.titulo ='" + titulo + "' AND ac.idAcervo = ar.Acervo_idAcervo;";
+        try {
+            statement = connection.createStatement();
+            result = statement.executeQuery(sql);
+            while (result.next()) {
+                resultado = result.getString("titulo");
+            }
+        } catch (SQLException error) {
+            System.out.println("Operation Error: " + error.getMessage());
+        } finally {
+            try {
+                connection.close();
+                statement.close();
+                result.close();
+            } catch (SQLException error) {
+                System.out.println("Connection Closure Error: " + error.getMessage());
+            }
+        }
+        return resultado;
+    }
+
+    public static String pesquisaRevista(String titulo){
+        String resultado = "";
+        connect();
+        String sql = "SELECT titulo FROM Acervo AS a INNER JOIN revista AS r ON a.titulo = '" + titulo + "' AND a.idAcervo = r.Acervo_idAcervo;";
+        try {
+            statement = connection.createStatement();
+            result = statement.executeQuery(sql);
+            while (result.next()) {
+                resultado = result.getString("titulo");
+            }
+        } catch (SQLException error) {
+            System.out.println("Operation Error: " + error.getMessage());
+        } finally {
+            try {
+                connection.close();
+                statement.close();
+                result.close();
+            } catch (SQLException error) {
+                System.out.println("Connection Closure Error: " + error.getMessage());
+            }
+        }
+        return resultado;
     }
 }

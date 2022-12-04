@@ -5,9 +5,7 @@ import br.inatel.projeto.model.*;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 public final class Main {
     // inicializa o banco de dados se ainda nao foi inicializado
@@ -139,7 +137,9 @@ public final class Main {
             Usuario usuario = new Usuario(nome, cpf, idade, celular);
             UsuarioDB.insertUsuario(usuario);
             ContaDB.insertConta(user, senha);
-            ContaDB.updateFkConta(user, cpf);
+
+            int idUsuario = UsuarioDB.selectIdUsuario(cpf);
+            ContaDB.updateFkConta(user, idUsuario);
 
             System.out.println("Cadastro efetuado com sucesso!");
             return user;
@@ -162,6 +162,111 @@ public final class Main {
 
         return maisSeteDiasFormatado;
     }
+
+    public static void emprestimoLivro(String titulo, String user){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Livro disponível!");
+        System.out.println("Digite 1 para fazer o empréstimo ou 2 para cancelar: ");
+        int opcao2 = scanner.nextInt();
+        do{
+            if (opcao2 == 1) {
+                // data de empréstimo
+                String dataAgora = DataAgora();
+
+                // data de devolução: 7 dias apos o dia de empréstimo
+                String dataDevolucao = DataDevolucao();
+
+                Emprestimo emprestimo = new Emprestimo(dataAgora, dataDevolucao);
+
+                // insere o empréstimo no banco de dados
+                int idAcervo = AcervoDB.selectIdAcervo(titulo);
+                int idConta = ContaDB.selectIdConta(user);
+                boolean valida = EmprestimoDB.insertEmprestimo(idConta, idAcervo, user, emprestimo);
+                if(valida){
+                    System.out.println("Empréstimo efetuado com sucesso!");
+                }
+                else{
+                    System.out.println("Erro ao efetuar o empréstimo! Tente novamente mais tarde.");
+                }
+
+            } else if (opcao2 == 2) {
+                System.out.println("Empréstimo cancelado!");
+            } else {
+                System.out.println("Opção inválida!");
+                System.out.println("Digite 1 para fazer o empréstimo ou 2 para cancelar: ");
+            }
+        }while(opcao2 != 1 && opcao2 != 2);
+    }
+
+    public static void emprestimoRevista(String titulo, String user){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Revista disponível!");
+        System.out.println("Digite 1 para fazer o empréstimo ou 2 para cancelar: ");
+        int opcao2 = scanner.nextInt();
+        do{
+            if (opcao2 == 1) {
+                // data de empréstimo
+                String dataAgora = DataAgora();
+
+                // data de devolução: 7 dias apos o dia de empréstimo
+                String dataDevolucao = DataDevolucao();
+
+                Emprestimo emprestimo = new Emprestimo(dataAgora, dataDevolucao);
+
+                // insere o empréstimo no banco de dados
+                int idAcervo = AcervoDB.selectIdAcervo(titulo);
+                int idConta = ContaDB.selectIdConta(user);
+                boolean valida = EmprestimoDB.insertEmprestimo(idConta, idAcervo, user, emprestimo);
+                if(valida){
+                    System.out.println("Empréstimo efetuado com sucesso!");
+                }
+                else{
+                    System.out.println("Erro ao efetuar o empréstimo! Tente novamente mais tarde.");
+                }
+
+            } else if (opcao2 == 2) {
+                System.out.println("Empréstimo cancelado!");
+            } else {
+                System.out.println("Opção inválida!");
+                System.out.println("Digite 1 para fazer o empréstimo ou 2 para cancelar: ");
+            }
+        }while(opcao2 != 1 && opcao2 != 2);
+    }
+
+    public static void emprestimoArtigo(String titulo, String user){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Artigo disponível!");
+        System.out.println("Digite 1 para fazer o empréstimo ou 2 para cancelar: ");
+        int opcao2 = scanner.nextInt();
+        do{
+            if (opcao2 == 1) {
+                // data de empréstimo
+                String dataAgora = DataAgora();
+
+                // data de devolução: 7 dias apos o dia de empréstimo
+                String dataDevolucao = DataDevolucao();
+
+                Emprestimo emprestimo = new Emprestimo(dataAgora, dataDevolucao);
+
+                // insere o empréstimo no banco de dados
+                int idAcervo = AcervoDB.selectIdAcervo(titulo);
+                int idConta = ContaDB.selectIdConta(user);
+                boolean valida = EmprestimoDB.insertEmprestimo(idConta, idAcervo, user, emprestimo);
+                if(valida){
+                    System.out.println("Empréstimo efetuado com sucesso!");
+                }
+                else{
+                    System.out.println("Erro ao efetuar o empréstimo! Tente novamente mais tarde.");
+                }
+
+            } else if (opcao2 == 2) {
+                System.out.println("Empréstimo cancelado!");
+            } else {
+                System.out.println("Opção inválida!");
+                System.out.println("Digite 1 para fazer o empréstimo ou 2 para cancelar: ");
+            }
+        }while(opcao2 != 1 && opcao2 != 2);
+    }
     public static void main(String[] args) {
         init();
         Scanner scanner = new Scanner(System.in);
@@ -169,7 +274,7 @@ public final class Main {
         System.out.println("Bem vindo ao sistema de biblioteca!");
         System.out.println("Digite 1 para fazer login ou 2 para fazer cadastro: ");
         int opcao = scanner.nextInt();
-        do{
+        do {
             boolean checkCadastro = false; // var aux para mostrar entrar no if caso o usuário já exista
             boolean checkLogin = false; // var aux para mostrar entrar no if caso o usuário não exista
             if (opcao == 1) {
@@ -184,56 +289,67 @@ public final class Main {
                 scanner.nextLine();
                 opcao = scanner.nextInt();
             }
-            if(user.equals("erro") && checkCadastro){ // caso o usuário já exista
+            if (user.equals("erro") && checkCadastro) { // caso o usuário já exista
                 System.out.println("Usuário já existente!");
                 System.out.println("Digite 1 para fazer login ou 2 para fazer cadastro com usuário diferente: ");
                 opcao = scanner.nextInt();
             }
-            if(user.equals("erro") && checkLogin){ // caso o login esteja errado
+            if (user.equals("erro") && checkLogin) { // caso o login esteja errado
                 System.out.println("User ou senha inválidos!");
                 System.out.println("Digite 1 para fazer login ou 2 para fazer cadastro: ");
                 opcao = scanner.nextInt();
             }
-        }while((opcao != 1 && opcao != 2) || user.equals("erro"));
+        } while ((opcao != 1 && opcao != 2) || user.equals("erro"));
         scanner.nextLine();
-        System.out.println("Digite o título do livro para verificar a disponibilidade: ");
-        String titulo = scanner.nextLine();
-        boolean disponivel = AcervoDB.pesquisaLivro(titulo);
-        if(disponivel){
-            System.out.println("Livro disponível!");
-            System.out.println("Digite 1 para fazer o empréstimo ou 2 para cancelar: ");
-            int opcao2 = scanner.nextInt();
-            do{
-                if (opcao2 == 1) {
-                    // data de empréstimo
-                    String dataAgora = DataAgora();
 
-                    // data de devolução: 7 dias apos o dia de empréstimo
-                    String dataDevolucao = DataDevolucao();
+        String escolha;
+        String titulo;
+        String resultadoTitulo;
+        do {
+            System.out.println("Digite o que deseja pesquisar (livro/revista/artigo): ");
+            escolha = scanner.nextLine();
+            escolha.toLowerCase();
+            resultadoTitulo = "";
+            titulo = "";
 
-                    Emprestimo emprestimo = new Emprestimo(dataAgora, dataDevolucao);
-
-                    // insere o empréstimo no banco de dados
-                    int idAcervo = AcervoDB.selectId(titulo);
-                    boolean valida = EmprestimoDB.insertEmprestimo(user, idAcervo, emprestimo);
-                    if(valida){
-                        System.out.println("Empréstimo efetuado com sucesso!");
-                    }
-                    else{
-                        System.out.println("Erro ao efetuar o empréstimo!");
-                    }
-
-                } else if (opcao2 == 2) {
-                    System.out.println("Empréstimo cancelado!");
+            if (escolha.equals("livro")) {
+                System.out.println("Digite o título do livro para verificar a disponibilidade: ");
+                titulo = scanner.nextLine();
+                resultadoTitulo = AcervoDB.pesquisaLivro(titulo);
+                if (resultadoTitulo.equals(titulo)) {
+                    emprestimoLivro(titulo, user);
                 } else {
-                    System.out.println("Opção inválida!");
-                    System.out.println("Digite 1 para fazer o empréstimo ou 2 para cancelar: ");
+                    System.out.println("Livro indisponível!");
                 }
-            }while(opcao2 != 1 && opcao2 != 2);
-        }
-        else{
-            System.out.println("Livro indisponível!");
-        }
+            } else if (escolha.equals("revista")) {
+                System.out.println("Digite o título da revista para verificar a disponibilidade: ");
+                titulo = scanner.nextLine();
+                resultadoTitulo = AcervoDB.pesquisaRevista(titulo);
+                if (resultadoTitulo.equals(titulo)) {
+                    emprestimoRevista(titulo, user);
+                } else {
+                    System.out.println("Revista indisponível!");
+                }
+            } else if (escolha.equals("artigo")) {
+                System.out.println("Digite o título do artigo para verificar a disponibilidade: ");
+                titulo = scanner.nextLine();
+                resultadoTitulo = AcervoDB.pesquisaArigo(titulo);
+                if (resultadoTitulo.equals(titulo)) {
+                    emprestimoArtigo(titulo, user);
+                } else {
+                    System.out.println("Artigo indisponível!");
+                }
+            } else if (titulo.equals("")) {
+                System.out.println("Título inválido!");
+                System.out.println("Digite o que deseja pesquisar (livro/revista/artigo): ");
+                escolha = scanner.nextLine();
+                escolha.toLowerCase();
+            } else {
+                System.out.println("Opção inválida!");
+                System.out.println("Digite o que deseja pesquisar (livro/revista/artigo): ");
+                escolha = scanner.nextLine();
+            }
+        } while ((escolha.equals("livro") && escolha.equals("revista") && escolha.equals("artigo")) || titulo.equals("") || resultadoTitulo.equals(""));
         System.out.println("Obrigado por utilizar o sistema de biblioteca!");
     }
 }

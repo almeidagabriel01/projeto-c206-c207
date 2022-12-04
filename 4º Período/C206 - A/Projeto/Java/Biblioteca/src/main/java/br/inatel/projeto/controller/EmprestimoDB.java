@@ -6,16 +6,17 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class EmprestimoDB extends Database{
-    public static boolean insertEmprestimo(String user, int idAcervo, Emprestimo emprestimo) {
+    public static boolean insertEmprestimo(int idConta, int idAcervo, String user, Emprestimo emprestimo) {
         boolean check = false;
         connect();
-        String sql = "INSERT INTO Conta_fazEmprestimo_Acervo (Conta_user, Acervo_idAcervo, dataEmprestimo, dataDevolucao) VALUES (?, ?, ?, ?);";
+        String sql = "INSERT INTO Acervo_fazEmprestimo_Conta (Conta_idConta, Acervo_idAcervo, user, dataEmprestimo, dataDevolucao) VALUES (?, ?, ?, ?, ?);";
         try {
             pst = connection.prepareStatement(sql);
-            pst.setString(1, user);
+            pst.setInt(1, idConta);
             pst.setInt(2, idAcervo);
-            pst.setString(3, emprestimo.getDataEmprestimo());
-            pst.setString(4, emprestimo.getDataDevolucao());
+            pst.setString(3, user);
+            pst.setString(4, emprestimo.getDataEmprestimo());
+            pst.setString(5, emprestimo.getDataDevolucao());
             pst.execute();
             check = true;
         } catch (SQLException error) {
@@ -31,10 +32,11 @@ public class EmprestimoDB extends Database{
         return check;
     }
 
+    /*
     public static boolean updateFkEmprestimo(String contaUser, int idAcervo, String dataEmp) {
         boolean check = false;
         connect();
-        String sql = "UPDATE Conta_fazEmprestimo_Acervo SET Conta_user = ?, Acervo_idAcervo = ? WHERE dataEmprestimo = ?;";
+        String sql = "UPDATE Acervo_fazEmprestimo_Conta SET Conta_user = ?, Acervo_idAcervo = ? WHERE dataEmprestimo = ?;";
         try {
             pst = connection.prepareStatement(sql);
             pst.setString(1, contaUser);
@@ -54,11 +56,11 @@ public class EmprestimoDB extends Database{
         }
         return check;
     }
-
+    */
     public static ArrayList<Emprestimo> selectEmprestimo() {
         connect();
         ArrayList<Emprestimo> emprestimos = new ArrayList<>();
-        String sql = "SELECT * FROM Conta_fazEmprestimo_Acervo;";
+        String sql = "SELECT * FROM Acervo_fazEmprestimo_Conta;";
         try {
             statement = connection.createStatement();
             result = statement.executeQuery(sql);
@@ -83,7 +85,7 @@ public class EmprestimoDB extends Database{
     public static boolean updateDataEmprestimo(int Conta_idConta, int Acervo_idAcervo,String dataEmpréstimo) {
         boolean check = false;
         connect();
-        String sql = "UPDATE Conta_fazEmprestimo_Acervo SET dataEmprestimo = ? WHERE Conta_idConta = ? AND Acervo_idAcervo = ?;";
+        String sql = "UPDATE Acervo_fazEmprestimo_Conta SET dataEmprestimo = ? WHERE Conta_idConta = ? AND Acervo_idAcervo = ?;";
         try {
             pst = connection.prepareStatement(sql);
             pst.setString(1, dataEmpréstimo);
@@ -107,7 +109,7 @@ public class EmprestimoDB extends Database{
     public static boolean updateDataDevolução(int Conta_idConta, int Acervo_idAcervo,String dataDevolução) {
         boolean check = false;
         connect();
-        String sql = "UPDATE Conta_fazEmprestimo_Acervo SET dataDevolucao = ? WHERE Conta_idConta = ? AND Acervo_idAcervo = ?;";
+        String sql = "UPDATE Acervo_fazEmprestimo_Conta SET dataDevolucao = ? WHERE Conta_idConta = ? AND Acervo_idAcervo = ?;";
         try {
             pst = connection.prepareStatement(sql);
             pst.setString(1, dataDevolução);
@@ -128,34 +130,10 @@ public class EmprestimoDB extends Database{
         return check;
     }
 
-    public static boolean updateQtdRenovados(int Conta_idConta, int Acervo_idAcervo,int qtdRenovados) {
-        boolean check = false;
-        connect();
-        String sql = "UPDATE Conta_fazEmprestimo_Acervo SET qtdRenovados = ? WHERE Conta_idConta = ? AND Acervo_idAcervo = ?;";
-        try {
-            pst = connection.prepareStatement(sql);
-            pst.setInt(1, qtdRenovados);
-            pst.setInt(2, Conta_idConta);
-            pst.setInt(3, Acervo_idAcervo);
-            pst.execute();
-            check = true;
-        } catch (SQLException error) {
-            System.out.println("Operation Error: " + error.getMessage());
-        } finally {
-            try {
-                connection.close();
-                pst.close();
-            } catch (SQLException error) {
-                System.out.println("Connection Closure Error: " + error.getMessage());
-            }
-        }
-        return check;
-    }
-
     public static boolean deleteEmprestimo(int Conta_idConta, int Acervo_idAcervo) {
         boolean check = false;
         connect();
-        String sql = "DELETE FROM Conta_fazEmprestimo_Acervo WHERE Conta_idConta = ? AND Acervo_idAcervo = ?;";
+        String sql = "DELETE FROM Acervo_fazEmprestimo_Conta WHERE Conta_idConta = ? AND Acervo_idAcervo = ?;";
         try {
             pst = connection.prepareStatement(sql);
             pst.setInt(1, Conta_idConta);

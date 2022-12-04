@@ -53,6 +53,30 @@ public class ContaDB extends Database{
         return users;
     }
 
+    public static int selectIdConta(String user) {
+        connect();
+        String sql = "SELECT idConta FROM Conta WHERE user ='" + user + "';";
+        int resultado = -1;
+        try {
+            statement = connection.createStatement();
+            result = statement.executeQuery(sql);
+            while (result.next()) {
+                resultado = result.getInt("idConta");
+            }
+        } catch (SQLException error) {
+            System.out.println("Operation Error: " + error.getMessage());
+        } finally {
+            try {
+                connection.close();
+                statement.close();
+                result.close();
+            } catch (SQLException error) {
+                System.out.println("Connection Closure Error: " + error.getMessage());
+            }
+        }
+        return resultado;
+    }
+
     public static Map<String, String> validaLogin(String usuario, String senha){
         Map<String, String> login = new HashMap<>();
         connect();
@@ -77,13 +101,13 @@ public class ContaDB extends Database{
         return login;
     }
 
-    public static boolean updateFkConta(String user, String cpf) {
+    public static boolean updateFkConta(String user, int idUsuario) {
         boolean check = false;
         connect();
-        String sql = "UPDATE Conta SET usuario_cpf = ? WHERE user = ?;";
+        String sql = "UPDATE Conta SET Usuario_idUsuario = ? WHERE user = ?;";
         try {
             pst = connection.prepareStatement(sql);
-            pst.setString(1, cpf);
+            pst.setInt(1, idUsuario);
             pst.setString(2, user);
             pst.execute();
             check = true;

@@ -30,6 +30,30 @@ public class UsuarioDB extends Database{
         return check;
     }
 
+    public static int selectIdUsuario(String cpf) {
+        connect();
+        String sql = "SELECT idUsuario FROM Usuario WHERE cpf ='" + cpf + "';";
+        int resultado = -1;
+        try {
+            statement = connection.createStatement();
+            result = statement.executeQuery(sql);
+            while (result.next()) {
+                resultado = result.getInt("idUsuario");
+            }
+        } catch (SQLException error) {
+            System.out.println("Operation Error: " + error.getMessage());
+        } finally {
+            try {
+                connection.close();
+                statement.close();
+                result.close();
+            } catch (SQLException error) {
+                System.out.println("Connection Closure Error: " + error.getMessage());
+            }
+        }
+        return resultado;
+    }
+
     public static String selectCPF(String nomeCompleto) {
         connect();
         String sql = "SELECT cpf FROM Usuario WHERE nomeCompleto ='" + nomeCompleto + "';";
