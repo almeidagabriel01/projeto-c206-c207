@@ -36,7 +36,7 @@ public class ArtigoDB extends Database{
             statement = connection.createStatement();
             result = statement.executeQuery(sql);
             while (result.next()) {
-                Artigo artigo = new Artigo(result.getString("título"), result.getString("CDU"), result.getString("autor"));
+                Artigo artigo = new Artigo(result.getString("titulo"), result.getString("CDU"), result.getString("autor"));
                 artigos.add(artigo);
             }
         } catch (SQLException error) {

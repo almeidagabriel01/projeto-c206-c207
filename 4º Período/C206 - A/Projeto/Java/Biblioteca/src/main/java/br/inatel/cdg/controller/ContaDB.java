@@ -1,10 +1,9 @@
 package br.inatel.cdg.controller;
 
-import br.inatel.cdg.model.Conta;
-import br.inatel.cdg.model.Empréstimo;
-
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ContaDB extends Database{
     public static boolean insertConta(String user, String senha) {
@@ -54,16 +53,16 @@ public class ContaDB extends Database{
         return users;
     }
 
-    public static boolean validarLogin(String user, String senha){
-        boolean check = false;
+    public static Map<String, String> validaLogin(String usuario, String senha){
+        Map<String, String> login = new HashMap<>();
         connect();
-        String sql = "SELECT user, senha FROM Conta WHERE user = ? AND senha = ?;";
+        String sql = "SELECT user, senha FROM Conta WHERE user ='" + usuario + "' AND senha ='" + senha + "';";
         try {
             statement = connection.createStatement();
-            pst.setString(1, user);
-            pst.setString(2, senha);
             result = statement.executeQuery(sql);
-            check = true;
+            while (result.next()) {
+                login.put(result.getString("user"), result.getString("senha"));
+            }
         } catch (SQLException error) {
             System.out.println("Operation Error: " + error.getMessage());
         } finally {
@@ -75,13 +74,13 @@ public class ContaDB extends Database{
                 System.out.println("Connection Closure Error: " + error.getMessage());
             }
         }
-        return check;
+        return login;
     }
 
     public static boolean updateFkConta(String user, String cpf) {
         boolean check = false;
         connect();
-        String sql = "UPDATE Conta SET Usuário_cpf = ? WHERE user = ?;";
+        String sql = "UPDATE Conta SET usuario_cpf = ? WHERE user = ?;";
         try {
             pst = connection.prepareStatement(sql);
             pst.setString(1, cpf);

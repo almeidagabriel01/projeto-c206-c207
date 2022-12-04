@@ -1,15 +1,15 @@
 package br.inatel.cdg.model;
 
-import br.inatel.cdg.controller.UsuárioDB;
+import br.inatel.cdg.controller.UsuarioDB;
 
-public class Usuário {
+public class Usuario {
     private String nomeCompleto;
     private String cpf;
     private int idade;
     private String celular;
-    private static UsuárioDB userDB = new UsuárioDB();
+    private static UsuarioDB userDB = new UsuarioDB();
 
-    public Usuário(String nomeCompleto, String cpf, int idade, String celular) {
+    public Usuario(String nomeCompleto, String cpf, int idade, String celular) {
         this.nomeCompleto = nomeCompleto;
         this.cpf = cpf;
         this.idade = idade;
@@ -30,11 +30,5 @@ public class Usuário {
 
     public String getCelular() {
         return celular;
-    }
-
-    public static String pesquisaUsuario(String cpf) {
-        String result = userDB.selectCPF(cpf);
-
-        return result;
     }
 }

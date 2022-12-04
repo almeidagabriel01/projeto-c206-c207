@@ -1,14 +1,12 @@
 package br.inatel.cdg.model;
 
-import br.inatel.cdg.controller.EmpréstimoDB;
-
-public class Empréstimo {
+public class Emprestimo {
     public String Conta_user;
     public int Acervo_idAcervo;
     private String dataEmprestimo;
     private String dataDevolucao;
 
-    public Empréstimo(String dataEmprestimo, String dataDevolucao) {
+    public Emprestimo(String dataEmprestimo, String dataDevolucao) {
         this.dataEmprestimo = dataEmprestimo;
         this.dataDevolucao = dataDevolucao;
     }

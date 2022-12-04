@@ -1,15 +1,14 @@
 package br.inatel.cdg.controller;
 
-import br.inatel.cdg.model.Usuário;
+import br.inatel.cdg.model.Usuario;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
 
-public class UsuárioDB extends Database{
-    public static boolean insertUsuário(Usuário user) {
+public class UsuarioDB extends Database{
+    public static boolean insertUsuario(Usuario user) {
         boolean check = false;
         connect();
-        String sql = "INSERT INTO Usuário (cpf, nomeCompleto, idade, celular) VALUES (?, ?, ?, ?);";
+        String sql = "INSERT INTO Usuario (cpf, nomeCompleto, idade, celular) VALUES (?, ?, ?, ?);";
         try {
             pst = connection.prepareStatement(sql);
             pst.setString(1, user.getCpf());
@@ -33,7 +32,7 @@ public class UsuárioDB extends Database{
 
     public static String selectCPF(String nomeCompleto) {
         connect();
-        String sql = "SELECT cpf FROM Usuário WHERE nomeCompleto = ?;";
+        String sql = "SELECT cpf FROM Usuario WHERE nomeCompleto ='" + nomeCompleto + "';";
         String nome = "";
         try {
             statement = connection.createStatement();
@@ -57,10 +56,10 @@ public class UsuárioDB extends Database{
         return nome;
     }
 
-    public static boolean updateUsuário(String cpf, String nomeCompleto, int idade, int celular) {
+    public static boolean updateUsuario(String cpf, String nomeCompleto, int idade, int celular) {
         boolean check = false;
         connect();
-        String sql = "UPDATE Usuário SET cpf = ?, nomeCompleto = ?, idade = ?, celular = ? WHERE cpf = ?;";
+        String sql = "UPDATE Usuario SET cpf = ?, nomeCompleto = ?, idade = ?, celular = ? WHERE cpf = ?;";
         try {
             pst = connection.prepareStatement(sql);
             pst.setString(1, cpf);
@@ -86,7 +85,7 @@ public class UsuárioDB extends Database{
     public static boolean deleteUsuário(String cpf) {
         boolean check = false;
         connect();
-        String sql = "DELETE FROM Usuário WHERE cpf = ?;";
+        String sql = "DELETE FROM Usuario WHERE cpf = ?;";
         try {
             pst = connection.prepareStatement(sql);
             pst.setString(1, cpf);

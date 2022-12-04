@@ -38,7 +38,7 @@ public class RevistaDB extends Database {
             statement = connection.createStatement();
             result = statement.executeQuery(sql);
             while (result.next()) {
-                Revista revista = new Revista(result.getString("título"), result.getString("cdu"), result.getString("editora"), result.getInt("ano"));
+                Revista revista = new Revista(result.getString("titulo"), result.getString("cdu"), result.getString("editora"), result.getInt("ano"));
                 revistas.add(revista);
             }
         } catch (SQLException error) {

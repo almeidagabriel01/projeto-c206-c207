@@ -15,10 +15,10 @@ CREATE SCHEMA IF NOT EXISTS `Biblioteca` DEFAULT CHARACTER SET utf8 ;
 USE `Biblioteca` ;
 
 -- -----------------------------------------------------
--- Table `Biblioteca`.`Usuário`
+-- Table `Biblioteca`.`Usuario`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `Biblioteca`.`Usuário` (
-  `cpf` VARCHAR(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `Biblioteca`.`Usuario` (
+  `cpf` VARCHAR(12) NOT NULL,
   `nomeCompleto` VARCHAR(100) NOT NULL,
   `idade` INT NOT NULL,
   `celular` VARCHAR(15) NOT NULL,
@@ -32,14 +32,13 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `Biblioteca`.`Conta` (
   `user` VARCHAR(30) NOT NULL,
   `senha` VARCHAR(40) NOT NULL,
-  `Usuário_cpf` VARCHAR(11),
+  `usuario_cpf` VARCHAR(12),
   PRIMARY KEY (`user`),
-  INDEX `fk_Conta_Usuário_idx` (`Usuário_cpf` ASC) VISIBLE,
-  CONSTRAINT `fk_Conta_Usuário`
-    FOREIGN KEY (`Usuário_cpf`)
-    REFERENCES `Biblioteca`.`Usuário` (`cpf`)
+  CONSTRAINT `fk_Conta_Usuario`
+    FOREIGN KEY (`usuario_cpf`)
+    REFERENCES `Biblioteca`.`Usuario` (`cpf`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
@@ -49,7 +48,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `Biblioteca`.`Acervo` (
   `idAcervo` INT NOT NULL AUTO_INCREMENT,
   `cdu` VARCHAR(45) NOT NULL,
-  `título` VARCHAR(45) NOT NULL,
+  `titulo` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`idAcervo`))
 ENGINE = InnoDB;
 
@@ -64,12 +63,11 @@ CREATE TABLE IF NOT EXISTS `Biblioteca`.`Livro` (
   `edição` VARCHAR(100) NOT NULL,
   `Acervo_idAcervo` INT,
   PRIMARY KEY (`idLivro`),
-  INDEX `fk_Livro_Acervo1_idx` (`Acervo_idAcervo` ASC) VISIBLE,
   CONSTRAINT `fk_Livro_Acervo1`
     FOREIGN KEY (`Acervo_idAcervo`)
     REFERENCES `Biblioteca`.`Acervo` (`idAcervo`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
@@ -82,12 +80,11 @@ CREATE TABLE IF NOT EXISTS `Biblioteca`.`Revista` (
   `ano` INT NOT NULL,
   `Acervo_idAcervo` INT,
   PRIMARY KEY (`idRevista`),
-  INDEX `fk_Revista_Acervo1_idx` (`Acervo_idAcervo` ASC) VISIBLE,
   CONSTRAINT `fk_Revista_Acervo1`
     FOREIGN KEY (`Acervo_idAcervo`)
     REFERENCES `Biblioteca`.`Acervo` (`idAcervo`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
@@ -99,26 +96,23 @@ CREATE TABLE IF NOT EXISTS `Biblioteca`.`Artigo` (
   `autor` VARCHAR(100) NOT NULL,
   `Acervo_idAcervo` INT,
   PRIMARY KEY (`idArtigo`),
-  INDEX `fk_Artigo_Acervo1_idx` (`Acervo_idAcervo` ASC) VISIBLE,
   CONSTRAINT `fk_Artigo_Acervo1`
     FOREIGN KEY (`Acervo_idAcervo`)
     REFERENCES `Biblioteca`.`Acervo` (`idAcervo`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
 -- Table `Biblioteca`.`Conta_fazEmpréstimo_Acervo`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `Biblioteca`.`Conta_fazEmpréstimo_Acervo` (
+CREATE TABLE IF NOT EXISTS `Biblioteca`.`Conta_fazEmprestimo_Acervo` (
   `Conta_user` VARCHAR(30),
   `Acervo_idAcervo` INT,
-  `dataEmpréstimo` VARCHAR(20) NOT NULL,
-  `dataDevolução` VARCHAR(20) NOT NULL,
+  `dataEmprestimo` VARCHAR(20) NOT NULL,
+  `dataDevolucao` VARCHAR(20) NOT NULL,
   PRIMARY KEY (`Conta_user`, `Acervo_idAcervo`),
-  INDEX `fk_Conta_has_Acervo_Acervo1_idx` (`Acervo_idAcervo` ASC) VISIBLE,
-  INDEX `fk_Conta_has_Acervo_Conta1_idx` (`Conta_user` ASC) VISIBLE,
   CONSTRAINT `fk_Conta_has_Acervo_Conta1`
     FOREIGN KEY (`Conta_user`)
     REFERENCES `Biblioteca`.`Conta` (`user`)

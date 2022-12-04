@@ -1,6 +1,5 @@
 package br.inatel.cdg.controller;
 
-import br.inatel.cdg.model.Empréstimo;
 import br.inatel.cdg.model.Livro;
 
 import java.sql.SQLException;
@@ -63,7 +62,7 @@ public class LivroDB extends Database{
             statement = connection.createStatement();
             result = statement.executeQuery(sql);
             while (result.next()) {
-                Livro livro = new Livro(result.getString("título"), result.getString("cdu"),result.getString("autor"), result.getString("editora"), result.getString("edição"));
+                Livro livro = new Livro(result.getString("titulo"), result.getString("cdu"),result.getString("autor"), result.getString("editora"), result.getString("edição"));
                 livros.add(livro);
             }
         } catch (SQLException error) {
@@ -83,16 +82,15 @@ public class LivroDB extends Database{
 
     public static String[][] selectLivro(String título) {
         connect();
-        String sql = "SELECT a.título, l.autor FROM Livro l, Acervo a WHERE a.título LIKE %?% AND a.idAcervo = l.idAcervo;";
+        String sql = "SELECT a.titulo, l.autor FROM Livro l, Acervo a WHERE a.titulo LIKE %'"+ título +"'% AND a.idAcervo = l.idAcervo;";
         String[][] data = new String[100][2];
         try {
             pst = connection.prepareStatement(sql);
-            pst.setString(1, título);
             while (result.next()) {
                 System.out.println("Título: " + result.getString("título"));
                 System.out.println("Autor: " + result.getString("autor"));
                 for(int i = 0; i < 100; i++) {
-                    data[i][0] = result.getString("título");
+                    data[i][0] = result.getString("titulo");
                     data[i][1] = result.getString("autor");
                 }
             }

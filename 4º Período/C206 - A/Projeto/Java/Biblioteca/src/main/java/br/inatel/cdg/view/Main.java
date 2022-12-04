@@ -6,6 +6,7 @@ import br.inatel.cdg.model.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Map;
 import java.util.Scanner;
 
 public final class Main {
@@ -13,8 +14,9 @@ public final class Main {
     public static void init(){
         if(!checkaDB()){
             System.out.println("Banco de dados já foi inicializado!");
+        }else{
+            preload();
         }
-        preload();
     }
 
     // Verifica se o banco de dados já foi inicializado
@@ -67,6 +69,7 @@ public final class Main {
 
     public static String login(){
         Scanner scanner = new Scanner(System.in);
+        Map<String, String> validaLogin;
 
         System.out.println("Digite seu usuário: ");
         String user = scanner.next();
@@ -74,10 +77,13 @@ public final class Main {
         String senha = scanner.next();
 
         // verifica se o login é valido
-        if (ContaDB.validarLogin(user, senha)) {
-            return user;
+        validaLogin = ContaDB.validaLogin(user, senha);
+        for (Map.Entry<String,String> pair : validaLogin.entrySet()) {
+            if(user.equals(pair.getKey()) && senha.equals(pair.getValue())){
+                System.out.println("Login efetuado com sucesso!");
+                return user;
+            }
         }
-
         return "erro";
     }
 
@@ -98,23 +104,29 @@ public final class Main {
             }
         }
         if(!valid) {
+
             System.out.println("Digite sua senha: ");
-            String senha = scanner.next();
+            String senha = scanner.nextLine();
+
             System.out.println("Digite seu nome completo: ");
-            String nome = scanner.next();
-            System.out.println("Digite seu cpf: ");
-            scanner.nextLine();
-            String cpf = scanner.next();
+            String nome = scanner.nextLine();
+
+            System.out.println("Digite seu cpf (somente número): ");
+            String cpf = scanner.nextLine();
+
             System.out.println("Digite sua idade: ");
             int idade = scanner.nextInt();
-            System.out.println("Digite seu celular: ");
-            String celular = scanner.next();
+            scanner.nextLine();
 
-            Usuário usuário = new Usuário(cpf, nome, idade, celular);
-            UsuárioDB.insertUsuário(usuário);
+            System.out.println("Digite seu celular: ");
+            String celular = scanner.nextLine();
+
+            Usuario usuario = new Usuario(nome, cpf, idade, celular);
+            UsuarioDB.insertUsuario(usuario);
             ContaDB.insertConta(user, senha);
             ContaDB.updateFkConta(user, cpf);
 
+            System.out.println("Cadastro efetuado com sucesso!");
             return user;
         }
         return "erro";
@@ -160,18 +172,17 @@ public final class Main {
             if(user.equals("erro") && checkCadastro){ // caso o usuário já exista
                 System.out.println("Usuário já existente!");
                 System.out.println("Digite 1 para fazer login ou 2 para fazer cadastro com usuário diferente: ");
-                scanner.nextLine();
                 opcao = scanner.nextInt();
             }
             if(user.equals("erro") && checkLogin){ // caso o login esteja errado
                 System.out.println("User ou senha inválidos!");
                 System.out.println("Digite 1 para fazer login ou 2 para fazer cadastro: ");
-                scanner.nextLine();
                 opcao = scanner.nextInt();
             }
         }while((opcao != 1 && opcao != 2) || user.equals("erro"));
+        scanner.nextLine();
         System.out.println("Digite o título do livro para verificar a disponibilidade: ");
-        String titulo = scanner.next();
+        String titulo = scanner.nextLine();
         boolean disponivel = AcervoDB.pesquisaLivro(titulo);
         if(disponivel){
             System.out.println("Livro disponível!");
@@ -179,10 +190,19 @@ public final class Main {
             int opcao2 = scanner.nextInt();
             do{
                 if (opcao2 == 1) {
+                    // data de empréstimo
                     String dataAgora = DataAgora();
+
+                    // data de devolução: 7 dias apos o dia de empréstimo
                     String dataDevolucao = DataDevolucao();
-                    Empréstimo emprestimo = new Empréstimo(dataAgora, dataDevolucao);
-                    EmpréstimoDB.insertEmpréstimo(emprestimo, user);
+
+                    Emprestimo emprestimo = new Emprestimo(dataAgora, dataDevolucao);
+
+                    // insere o empréstimo no banco de dados
+                    int idAcervo = AcervoDB.selectId(titulo);
+                    EmprestimoDB.insertEmprestimo(user, idAcervo, emprestimo);
+                    System.out.println("Empréstimo efetuado com sucesso!");
+
                 } else if (opcao2 == 2) {
                     System.out.println("Empréstimo cancelado!");
                 } else {
@@ -194,5 +214,6 @@ public final class Main {
         else{
             System.out.println("Livro indisponível!");
         }
+        System.out.println("Obrigado por utilizar o sistema de biblioteca!");
     }
 }
